@@ -1,0 +1,73 @@
+{
+  "$schema": "/etc/swaync/config.schema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-width": 300,
+  "control-center-margin-top": 300,
+  "control-center-margin-right": 20,
+  "control-center-margin-bottom": 20,
+  "notification-window-width": 300,
+  "notification-icon-size": 48,
+  "transition-length": 150,
+  "timeout": 2,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+
+  "widgets": [
+    "title",
+    "volume",
+    "backlight",
+    "buttons-grid",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "NOTIFICATIONS",
+      "clear-all-button": true,
+      "button-text": "󰎟 Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "backlight": {
+      "label": "󰃠"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": " ",
+          "type": "toggle",
+          "command": "bash ~/.config/niri/scripts/airplane_mode.sh",
+          "update-command": "sh -c 'nmcli radio wifi | grep -q \"disabled\" && echo true || echo false'",
+          "interval": 10
+        },
+        {
+          "label": "󰛨 ",
+          "type": "toggle",
+          "command": "bash -c '~/.config/niri/scripts/night_light.sh'",
+          "update-command": "pgrep -x wlsunset > /dev/null && echo true || echo false",
+          "interval": 10
+        },
+        {
+          "label": "󰌪",
+          "type": "toggle",
+          "command": "bash -c '~/.config/niri/scripts/power_saved.sh'",
+          "update-command": "sh -c '[ -f /tmp/niri_power_save_active ] && echo true || echo false'",
+          "interval": 10
+        },
+        {
+          "label": "👁 ",
+          "type": "toggle",
+          "command": "bash -c '~/.config/niri/scripts/keep_awake.sh'",
+          "update-command": "sh -c '[ -f /tmp/niri_keep_awake.lock ] && echo true || echo false'",
+          "interval": 10
+        }
+      ]
+    }
+  }
+}
