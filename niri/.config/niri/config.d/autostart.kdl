@@ -1,0 +1,31 @@
+// ================================================
+//   _   ____  ______  _  _______  _  ___________ 
+//  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+//  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+// ================================================
+
+// =====================================
+// AUTOSTART PROGRAMS
+// =====================================
+// https://niri-wm.github.io/niri/Configuration%3A-Miscellaneous.html
+
+spawn-sh-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &"
+spawn-at-startup "xwayland-satellite"
+spawn-at-startup "dbus-update-activation-environment" "--systemd" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "systemctl" "--user" "import-environment" "WAYLAND_DISPLAY" "XDG_CURRENT_DESKTOP"
+spawn-at-startup "udiskie"
+
+spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-xsettings"
+spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-power"
+spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-keyboard"
+
+// spawn-at-startup "waybar"
+spawn-at-startup "swaync"
+spawn-at-startup "hypridle"
+spawn-sh-at-startup "swaybg -i $HOME/.cache/current_wallpaper -m fill"
+
+spawn-at-startup "fcitx5" "-d"
+spawn-at-startup "wl-paste" "--type" "text" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--type" "image" "--watch" "cliphist" "store"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"

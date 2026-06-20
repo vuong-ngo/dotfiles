@@ -1,0 +1,39 @@
+// ================================================
+//   _   ____  ______  _  _______  _  ___________ 
+//  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+//  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+// ================================================
+
+//=====================================
+// IMPORT SOURCE
+//=====================================
+// https://niri-wm.github.io/niri/Configuration%3A-Include.html
+
+include "config.d/environments.kdl" // Load environment variables
+include "config.d/monitor.kdl" // Monitor configurations
+
+include "config.d/input.kdl" // Input Keyboard, Mouse, and Touchpad gestures
+include "config.d/keybinds.kdl" // Keybindings for system and application control
+
+include "config.d/appearance.kdl" // Visual styling
+include "config.d/animations.kdl" // Optimized physics-based animations
+
+include "config.d/autostart.kdl" // Daemons and startup applications
+
+//=====================================
+// GLOBAL SETTINGS
+//=====================================
+// https://niri-wm.github.io/niri/Getting-Started.html
+
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/%Y-%m-%d %H-%M-%S.png"
+
+
+xwayland-satellite { path "xwayland-satellite"; }
+hotkey-overlay { skip-at-startup; }
+gestures { hot-corners { off; }; }
+
+binds {
+    Mod+Ctrl+Alt+K { spawn "~/.config/niri/scripts/toggle_keybinds.sh"; }
+}

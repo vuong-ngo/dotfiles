@@ -1,0 +1,39 @@
+// ================================================
+//   _   ____  ______  _  _______  _  ___________ 
+//  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+//  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+// ================================================
+
+// =====================================
+// ANIMATIONS
+// =====================================
+// https://niri-wm.github.io/niri/Configuration%3A-Animations.html
+
+animations {
+    slowdown 0.9
+
+    window-open {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    window-close {
+        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=0.75 stiffness=600 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=0.85 stiffness=1500 epsilon=0.0001
+    }
+
+    overview-open-close {
+        spring damping-ratio=0.8 stiffness=1000 epsilon=0.0001
+    }
+}

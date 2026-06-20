@@ -1,0 +1,36 @@
+// ================================================
+//   _   ____  ______  _  _______  _  ___________ 
+//  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+//  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+// ================================================
+
+//=====================================
+// INPUT CONFIGURATION
+//=====================================
+// https://niri-wm.github.io/niri/Configuration%3A-Input.html
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+
+    touchpad {
+        tap
+        accel-speed 0.2
+        accel-profile "adaptive"
+        scroll-method "two-finger"
+        natural-scroll
+    }
+
+    mouse {
+        accel-profile "flat"
+    }
+}
+
+cursor {
+    xcursor-size 24
+    hide-after-inactive-ms 5000
+}
