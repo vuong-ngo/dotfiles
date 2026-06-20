@@ -1,0 +1,168 @@
+/* ==========================================================================
+   CATPPUCCIN MOCHA - DYNAMIC ISLAND STYLE (COMPACT & SLEEK)
+   ========================================================================== */
+
+@define-color base      #11111b; /* Ultra dark obsidian background */
+@define-color surface0  #1e1e2e; /* Slightly lighter inner slate */
+@define-color surface1  #313244;
+@define-color text      #cdd6f4;
+@define-color subtext   #a6adc8;
+
+/* Accent Colors */
+@define-color lavender  #b4befe;
+@define-color blue      #89b4fa;
+@define-color green     #a6e3a1;
+@define-color yellow    #f9e2af;
+@define-color red       #f38ba8;
+
+/* --- RESET & GLOBAL SETTINGS --- */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 11.5px; /* Shrink font size slightly for compact look */
+    font-weight: 700;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+}
+
+/* The Floating Island Body */
+window#waybar {
+    background: @base; 
+    color: @text;
+    border: 1px solid alpha(@text, 0.05); /* Invisible micro edge */
+    border-radius: 20px; /* Aggressive roundness like an iPhone Island */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Tooltips */
+tooltip {
+    background: @base;
+    border: 1px solid @surface1;
+    border-radius: 10px;
+    padding: 6px 10px;
+}
+tooltip label {
+    font-size: 11px;
+    color: @text;
+}
+
+/* --- COMPACT MODULE LAYOUT (Tight & Clean) --- */
+#custom-launcher,
+#workspaces,
+#clock,
+#idle_inhibitor,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#custom-power,
+#custom-expand-icon,
+#tray {
+    background: transparent; /* No blocky containers inside the island */
+    color: @text;
+    padding: 2px 8px; /* Safe padding for perfect vertical layout */
+    margin: 0px 1px;  /* Minimal vertical footprint */
+}
+
+/* --- LEFT SIDE (Launcher & Dots) --- */
+#custom-launcher {
+    color: @blue;
+    font-size: 13px;
+    padding-left: 12px;
+    padding-right: 8px;
+}
+#custom-launcher:hover {
+    color: @lavender;
+}
+
+#workspaces {
+    padding: 0px 4px;
+}
+#workspaces button {
+    color: alpha(@text, 0.25);
+    padding: 0px 4px;
+    min-width: 10px;
+    transition: all 0.2s ease;
+}
+#workspaces button.active {
+    color: @lavender;
+}
+#workspaces button:hover {
+    color: @text;
+}
+
+/* --- CENTER SIDE (The Dynamic Clock pill) --- */
+#clock {
+    color: @text;
+    background: @surface0; /* Clock gets its own micro-pill inside the island */
+    border-radius: 12px;
+    padding: 2px 14px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+/* --- RIGHT SIDE (Status Stream) --- */
+#idle_inhibitor {
+    color: alpha(@text, 0.4);
+    padding-left: 6px;
+    padding-right: 4px;
+}
+#idle_inhibitor.activated {
+    color: @yellow;
+}
+
+#backlight {
+    color: @yellow;
+    padding-right: 6px;
+}
+
+#pulseaudio {
+    color: @green;
+    padding-right: 6px;
+}
+#pulseaudio.muted {
+    color: @red;
+}
+
+#network {
+    color: @blue;
+    padding-right: 6px;
+}
+#network.disconnected, #network.disabled {
+    color: @red;
+}
+
+#battery {
+    color: @text;
+    padding-right: 6px;
+}
+#battery.warning {
+    color: @yellow;
+}
+#battery.critical:not(.charging) {
+    color: @red;
+}
+#battery.charging, #battery.plugged {
+    color: @green;
+}
+
+/* Compact Tray Drawer */
+#custom-expand-icon {
+    color: alpha(@text, 0.4);
+    padding: 0 4px;
+}
+#tray {
+    padding: 0 6px;
+}
+
+/* Power Control Anchor */
+#custom-power {
+    color: @red;
+    padding-left: 8px;
+    padding-right: 12px;
+}
+#custom-power:hover {
+    color: alpha(@red, 0.7);
+}
