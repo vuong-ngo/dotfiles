@@ -1,0 +1,66 @@
+# --- WINDOW ---
+[window]
+padding = { x = 10, y = 10 }
+dynamic_padding = true
+decorations = "None" # Disable window decorations for a minimal look
+opacity = 0.9       # Match your Kitty opacity
+
+# --- FONT ---
+[font]
+size = 12.0 # Your preferred size
+
+[font.normal]
+family = "MesloLGLDZ Nerd Font" # Your preferred font
+style = "Regular"
+
+[font.bold]
+family = "MesloLGLDZ Nerd Font"
+style = "Bold"
+
+# --- COLORS ---
+[colors.primary]
+background = "#1E1E2E" # Dark Mocha base
+foreground = "#D9E0EE"
+
+[colors.cursor]
+text = "#1E1E2E"
+cursor = "#F5E0DC" # Warm Rosewater/Cappuccino
+
+[colors.selection]
+text = "#1E1E2E"
+background = "#F5E0DC"
+
+# Normal colors (Cappuccino tones)
+[colors.normal]
+black   = "#45475A"
+red     = "#F2CDCD" # Warm Peach
+green   = "#ABE9B3"
+yellow  = "#FAE3B0"
+blue    = "#C9CBFF" # Lavender
+magenta = "#F5C2E7"
+cyan    = "#94E2D5"
+white   = "#BAC2DE"
+
+# Bright colors
+[colors.bright]
+black   = "#585B70"
+red     = "#F2CDCD"
+green   = "#ABE9B3"
+yellow  = "#FAE3B0"
+blue    = "#C9CBFF"
+magenta = "#F5C2E7"
+cyan    = "#94E2D5"
+white   = "#A6ADC8"
+
+# --- CURSOR ---
+[cursor]
+style = { shape = "Beam", blinking = "Always" }
+blink_interval = 500
+
+# --- SCROLLING ---
+[scrolling]
+history = 5000
+multiplier = 3
+
+# --- KEYBINDINGS ---
+
