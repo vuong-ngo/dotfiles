@@ -2,7 +2,7 @@
 
 This directory houses configuration files for **Hyprland**, a highly customizable dynamic tiling Wayland compositor that does not sacrifice on aesthetics. It features fluent physics-based animations, clean window borders, layouts, and a modular architecture.
 
-![Hyprland Window Manager Preview](../preview/preview-wm-hyprland-2026-03-09%19-48-10.png)
+![Hyprland Window Manager Preview](../preview/preview-wm-hyprland-2026-03-09%2019-48-10.png)
 
 ---
 
