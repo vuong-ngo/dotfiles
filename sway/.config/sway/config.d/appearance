@@ -1,0 +1,27 @@
+# ================================================
+#   _   ____  ______  _  _______  _  ___________ 
+#  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+#  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+#  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+# ================================================
+
+
+# =====================================
+#  VISUAL
+# =====================================
+
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 10
+smart_borders on
+
+set $mau_chinh    #89b4fa
+set $mau_nen      #1e1e2e
+set $mau_chu      #cdd6f4
+set $mau_phu      #313244
+set $mau_canh_bao #f38ba8
+
+client.focused          $mau_chinh    $mau_nen      $mau_chu     $mau_chinh   $mau_chinh
+client.focused_inactive $mau_phu      $mau_nen      $mau_chu     $mau_phu     $mau_phu
+client.unfocused        $mau_phu      $mau_nen      $mau_chu     $mau_phu     $mau_phu
+client.urgent           $mau_canh_bao $mau_nen      $mau_chu     $mau_canh_bao $mau_canh_bao

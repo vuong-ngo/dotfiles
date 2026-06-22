@@ -1,0 +1,48 @@
+# ================================================
+#   _   ____  ______  _  _______  _  ___________ 
+#  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+#  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+#  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+# ================================================
+
+
+# =====================================
+#  AUTOSTART
+# =====================================
+
+# --- 1. DBUS & PORTAL (PHẢI CHẠY ĐẦU TIÊN) ---
+# Việc này giúp Shared màn hình và các App nhận diện đúng môi trường Sway
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+# --- 2. HỆ THỐNG & BẢO MẬT ---
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec gnome-keyring-daemon --start --components=secrets
+exec udiskie &
+
+# --- 3. GIAO DIỆN & THÔNG BÁO ---
+exec swaync
+exec swaybg -i ~/.cache/current_wallpaper -m fill
+# Sway có thể dùng hypridle bình thường vì nó dùng giao thức idle-inhibit của Wayland
+exec hypridle
+
+# --- 4. BỘ GÕ & CLIPBOARD ---
+# Fcitx5 cho tiếng Việt
+exec fcitx5 -d
+# Cliphist để quản lý copy/paste
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+
+# --- 5. NIGHT LIGHT (WLSUNSET) ---
+# Reset trạng thái giống logic cũ của Vương
+exec rm -f /tmp/night_light_state && pkill wlsunset
+
+# --- 6. TỰ ĐỘNG CHIA Ô (TIỆN ÍCH THÊM) ---
+# Vì Sway mặc định không tự chia ô thông minh như Hyprland, Vương nên chạy cái này
+exec autotiling
+
+
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+#          before-sleep 'swaylock -f -c 000000'

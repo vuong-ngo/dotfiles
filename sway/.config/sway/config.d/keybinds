@@ -1,0 +1,144 @@
+# ================================================
+#   _   ____  ______  _  _______  _  ___________ 
+#  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+#  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+#  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+# ================================================
+
+
+# =====================================
+#  KEY BINDINGS
+# =====================================
+set $mod Mod4
+set $term foot
+set $filemanage nautilus
+set $screenshot_dir $HOME/Pictures/Screenshots
+
+bindsym Print+Ctrl+Shift exec grim -g "$(slurp -d)" - | wl-copy
+
+bindsym $mod+Return exec $term
+bindsym $mod+E exec $filemanage
+bindsym $mod+A exec rofi -show drun -theme ~/.config/rofi/config.rasi
+bindsym $mod+Shift+A exec rofi -show drun -theme ~/.config/rofi/config.rasi -run-command switcherooctl {cmd} -display-drun "NVIDIA"
+bindsym $mod+N exec swaync-client -t -sw
+bindsym $mod+Ctrl+Alt+L exec hyprlock
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
+# --- ROFI SCRIPTS ---
+bindsym $mod+Ctrl+Alt+Insert exec ~/.config/rofi/scripts/wallpaper-picker/wallpaper-picker.sh
+bindsym $mod+Ctrl+Alt+Pause exec ~/.config/rofi/scripts/power-menu/power-menu.sh
+bindsym $mod+Shift+P exec ~/.config/rofi/scripts/monitor-layout/monitor-layout.sh
+bindsym $mod+V exec ~/.config/rofi/scripts/clipboard-manager/clipboard-manager.sh
+
+# --- WINDOW MANAGEMENT ---
+bindsym $mod+Q kill
+bindsym $mod+F4 kill
+bindsym $mod+W floating toggle
+bindsym $mod+Shift+W focus mode_toggle
+bindsym $mod+F11 fullscreen toggle
+bindsym $mod+Tab workspace back_and_forth
+bindsym $mod+T layout tabbed
+bindsym $mod+F focus parent
+
+bindsym $mod+Shift+D move scratchpad
+bindsym $mod+D scratchpad show
+
+floating_modifier $mod normal
+
+# --- SCREENSHOTS (Grim + Slurp) ---
+bindsym $mod+Shift+s exec grim -g "$(slurp)" "$screenshot_dir/$(date +%Y%m%d_%H%M%S).png" && wl-copy < "$screenshot_dir/$(ls -t $screenshot_dir | head -n1)" && notify-send "Screenshot" "Region captured and saved to Screenshots"
+bindsym Print exec grim -g "$(slurp)" "$screenshot_dir/$(date +%Y%m%d_%H%M%S).png" && wl-copy < "$screenshot_dir/$(ls -t $screenshot_dir | head -n1)" && notify-send "Screenshot" "Region captured and saved to Screenshots"
+bindsym Shift+Print exec ~/.config/sway/scripts/screenshot-focused.sh
+bindsym $mod+Print exec grim "$screenshot_dir/full_$(date +%Y%m%d_%H%M%S).png" && wl-copy < "$screenshot_dir/$(ls -t $screenshot_dir | head -n1)" && notify-send "Screenshot" "Full screen captured and saved"
+
+bindsym $mod+Ctrl+s move container to output HEADLESS-1
+
+# --- RESIZE WINDOWS ---
+bindsym $mod+Ctrl+Right resize grow width 40 px
+bindsym $mod+Ctrl+Left resize shrink width 40 px
+bindsym $mod+Ctrl+Up resize shrink height 40 px
+bindsym $mod+Ctrl+Down resize grow height 40 px
+
+bindsym $mod+Ctrl+L resize grow width 40 px
+bindsym $mod+Ctrl+H resize shrink width 40 px
+bindsym $mod+Ctrl+K resize shrink height 40 px
+bindsym $mod+Ctrl+J resize grow height 40 px
+
+# --- FOCUS (Vim & Arrows) ---
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+H focus left
+bindsym $mod+J focus down
+bindsym $mod+K focus up
+bindsym $mod+L focus right
+
+# --- WORKSPACES ---
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Alt+Up workspace prev
+bindsym $mod+Alt+Down workspace next
+bindsym $mod+Alt+K workspace prev
+bindsym $mod+Alt+J workspace next
+
+# --- MOVE WINDOWS ---
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+J move down
+bindsym $mod+Shift+K move up
+bindsym $mod+Shift+L move right
+
+# --- MOVE TO WORKSPACES ---
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# --- SPECIEL KEY ---
+bindsym $mod+X layout stacking
+bindsym $mod+Shift+X layout tabbed
+bindsym $mod+I layout toggle split
+
+# --- MULTIMEDIA KEYS ---
+bindsym XF86MonBrightnessUp exec ~/.config/niri/scripts/brightness.sh up
+bindsym XF86MonBrightnessDown exec ~/.config/niri/scripts/brightness.sh down
+bindsym XF86AudioRaiseVolume exec ~/.config/niri/scripts/volume.sh up
+bindsym XF86AudioLowerVolume exec ~/.config/niri/scripts/volume.sh down
+bindsym XF86AudioMute exec ~/.config/niri/scripts/volume.sh mute
+bindsym XF86AudioMicMute exec ~/.config/niri/scripts/volume.sh mic
+
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+# --- MEDIA CONTROLS ---
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPrev exec playerctl previous

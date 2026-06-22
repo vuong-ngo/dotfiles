@@ -1,0 +1,28 @@
+# ================================================
+#   _   ____  ______  _  _______  _  ___________ 
+#  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
+#  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
+#  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+# ================================================
+
+
+# =====================================
+#  INPUT
+# =====================================
+
+focus_follows_mouse no
+input type:keyboard {
+    xkb_layout "us"
+    xkb_options caps:escape
+}
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+bar {
+    swaybar_command waybar
+}
