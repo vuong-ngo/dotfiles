@@ -1,0 +1,217 @@
+/* --- Global Settings --- */
+* {
+    font-family: "Inter", "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    min-height: 0;
+    min-width: 0; /* Mandatory to allow the bar to shrink when placed vertically */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* --- The Unified Background Bar --- */
+/* Apply background and border to the ENTIRE bar instead of individual groups */
+window#waybar {
+    background: rgba(30, 30, 46, 1.0); /* Unified dark background (Catppuccin) */
+    border: 2px solid rgba(255, 255, 255, 0.1); /* Unified border */
+    border-radius: 10px; /* Round the corners of the entire bar */
+    color: #cdd6f4;
+    transition: background-color 0.2s ease;
+}
+
+/* --- Container Styling --- */
+/* Make the groups transparent so they sit directly on the unified bar */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+    border: none;
+}
+
+/* --- Base Styling for Items --- */
+.modules-left > widget > *,
+.modules-center > widget > *,
+.modules-right > widget > * {
+    background: transparent;
+    color: #cdd6f4;
+    transition: all 0.2s ease;
+}
+
+/* Auto-align paddings for HORIZONTAL layout */
+.horizontal .modules-left > widget > *,
+.horizontal .modules-center > widget > *,
+.horizontal .modules-right > widget > * {
+    padding: 2px 10px;
+    margin: 0; /* No margin needed when connected */
+}
+
+/* Auto-align paddings for VERTICAL layout */
+.vertical .modules-left > widget > *,
+.vertical .modules-center > widget > *,
+.vertical .modules-right > widget > * {
+    padding: 10px 2px;
+    margin: 0;
+}
+
+/* --- Left Modules --- */
+#custom-launcher {
+    color: #89b4fa; /* Signature Arch Linux blue */
+    font-size: 15px;
+    border-radius: 8px 0 0 8px; /* Round the left edge */
+}
+.vertical #custom-launcher { border-radius: 8px 8px 0 0; }
+.horizontal #custom-launcher { padding-left: 14px; padding-right: 14px; }
+.vertical #custom-launcher { padding-top: 14px; padding-bottom: 14px; }
+
+#custom-launcher:hover {
+    color: #11111b;
+    background: #89b4fa;
+}
+
+/* --- Workspaces --- */
+#workspaces {
+    margin: 0;
+}
+
+#workspaces button {
+    color: #a6adc8;
+    border-radius: 6px; 
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.horizontal #workspaces button { padding: 0 8px; margin: 3px 2px; }
+.vertical #workspaces button { padding: 8px 0; margin: 2px 3px; }
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #cdd6f4;
+}
+
+/* ACTIVE Workspace State */
+#workspaces button.active {
+    background: linear-gradient(135deg, #89b4fa, #74c7ec);
+    color: #11111b;
+    box-shadow: 0 0 10px rgba(137, 180, 250, 0.4);
+}
+
+#window { 
+    color: #bac2de; 
+    padding-left: 8px;
+    padding-right: 14px;
+}
+
+/* --- Center Module --- */
+#clock { 
+    color: #f38ba8; 
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+.vertical #clock { margin: 0 3px; }
+
+#clock:hover { 
+    background: #f38ba8; 
+    color: #11111b;
+}
+
+/* --- Right Modules --- */
+#backlight { 
+    color: #f9e2af;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#backlight:hover {
+    background: #f9e2af;
+    color: #11111b;
+}
+#pulseaudio {
+    color: #89b4fa;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#pulseaudio:hover {
+    background: #89b4fa;
+    color: #11111b;
+}
+#network {
+    color: #cba6f7;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#network:hover {
+    background: #cba6f7;
+    color: #11111b;
+}
+
+/* Battery Handling */
+#battery { 
+    color: #a6e3a1;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#battery.warning {
+    color: #f9e2af;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    background: rgba(243, 139, 168, 0.1);
+    animation: blink 1s linear infinite;
+    border-radius: 6px;
+}
+#battery.charging {
+    color: #a6e3a1;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+
+#battery:hover {
+    color: #11111b;
+    background: #a6e3a1;
+}
+
+#tray { padding: 0 5px; }
+
+/* Power Button */
+#custom-power {
+    color: #f38ba8;
+    font-size: 14px;
+    border-radius: 0 8px 8px 0; /* Round the right edge to match the main bar */
+}
+
+.vertical #custom-power {
+    border-radius: 0 0 8px 8px;
+}
+
+.horizontal #custom-power { padding-left: 12px; padding-right: 14px; }
+.vertical #custom-power { padding-top: 10px; padding-bottom: 14px; }
+
+#custom-power:hover {
+    background: #f38ba8;
+    color: #11111b;
+}
+
+/* --- Keybindings Cheat Sheet Button --- */
+#custom-keybinds {
+    color: #6EE7B7; /* Mint accent color */
+    font-size: 12px;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    margin: 3px 0; /* Give it a little breathing room */
+}
+
+/* Auto-align padding based on orientation */
+.horizontal #custom-keybinds { padding-left: 10px; padding-right: 12px; margin: 3px 2px; }
+.vertical #custom-keybinds { padding-top: 10px; padding-bottom: 12px; margin: 2px 3px; }
+
+/* Hover effect */
+#custom-keybinds:hover {
+    background: #6EE7B7;
+    color: #0B1220; /* Dark text on hover for contrast */
+    box-shadow: 0 0 8px rgba(110, 231, 183, 0.4);
+}
+
+/* --- Animations --- */
+@keyframes blink {
+    50% { color: transparent; background: transparent; }
+}

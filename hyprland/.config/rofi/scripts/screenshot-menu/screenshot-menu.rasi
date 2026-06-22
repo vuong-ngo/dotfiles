@@ -1,0 +1,100 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/color.rasi"
+
+* {
+    /* Mapping palette for consistency */
+    background-color:            transparent;
+    background-alt:              rgba(30, 32, 48, 0.7); /* Translucent Mantle */
+    selected-col:                @selected;
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    south;
+    anchor:                      south;
+    fullscreen:                  false;
+    width:                       400px; /* Slimmer for better look */
+    y-offset:                    -50px; /* Float above the bar */
+    x-offset:                    0px;
+
+    enabled:                     true;
+    border:                      2px solid;
+    border-radius:               30px; /* Extra round for high-end feel */
+    border-color:                @selected-col;
+    background-color:            @background; /* Uses the translucent navy from color.rasi */
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     15px;
+    padding:                     25px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Title Bar -----*****/
+inputbar {
+    enabled:                     true;
+    margin:                      0px 0px 5px 0px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    children:                    [ "prompt" ];
+}
+
+prompt {
+    enabled:                     true;
+    font:                        "JetBrainsMono NF Bold 14";
+    background-color:            transparent;
+    text-color:                  @foreground;
+    horizontal-align:            0.5;
+}
+
+/*****----- Listview (Horizontal Row) -----*****/
+listview {
+    enabled:                     true;
+    columns:                     3;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical; /* Keep vertical but columns=3 creates the row */
+    
+    spacing:                     15px;
+    background-color:            transparent;
+    cursor:                      "default";
+}
+
+/*****----- Elements (Action Buttons) -----*****/
+element {
+    enabled:                     true;
+    padding:                     25px 0px; /* Taller buttons for easy clicking */
+    border-radius:               20px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+/* Hover/Selected Animation */
+element selected.normal {
+    background-color:            @selected-col;
+    text-color:                  @background; /* Dark text on Mint background */
+    border:                      0px solid;
+    /* Visual feedback: makes the button pop */
+}
+
+element-text {
+    font:                        "JetBrainsMono NF Bold 11"; /* Massive icons/text */
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.5;
+}

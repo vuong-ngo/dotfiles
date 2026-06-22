@@ -1,0 +1,56 @@
+/* --- Rofi Theme: Monitor Layout --- */
+
+/* Import the color palette */
+@import                          "~/.config/rofi/color.rasi"
+
+* {
+    /* Global font and text color setting */
+    text-color:       var(foreground);
+    font:               "MesloLGLDZ Nerd Font Bold 12";
+}
+
+window {
+    width:            450px; /* Narrower width suited for vertical lists */
+    background-color: var(background);
+    border:           2px solid;
+    border-color:     var(border-colour); /* Inherited border-colour */
+    border-radius:    14px;
+    padding:          15px;
+}
+
+mainbox {
+    /* Only display the listview, keeping the search bar hidden */
+    children:         [ listview ];
+}
+
+listview {
+    columns:          1; /* Single column for vertical layout */
+    lines:            4; /* Display 4 rows */
+    spacing:          8px; /* Breathing room between options */
+    scrollbar:        false;
+}
+
+element {
+    padding:          12px 15px; /* Comfortable padding for list items */
+    border-radius:    8px;
+}
+
+/* Normal state */
+element normal.normal {
+    background-color: transparent;
+    text-color:       var(foreground);
+}
+
+/* SELECTED state (Highlight) */
+element selected.normal {
+    background-color: var(selected); /* Mint background */
+    text-color:       var(background-alt); /* Dark text for readability */
+}
+
+/* Ensure text inherits color and aligns properly */
+element-text {
+    horizontal-align: 0.0; /* Align text to the left for vertical lists */
+    vertical-align:   0.5; /* Center text vertically */
+    background-color: inherit;
+    text-color:       inherit;
+}

@@ -1,0 +1,18 @@
+/* Optimized for High-Contrast & System Engineering Workflow */
+
+* {
+    /* Main Backgrounds - Using Mocha Base with 90% Opacity */
+    background:      #1E1E2EE6; /* base: deep obsidian navy */
+    background-alt:  #181825FF; /* mantle: darker for depth/separation */
+    foreground:      #CDD6F4FF; /* text: clean, soft white */
+    
+    /* Lavender & Sapphire Accents (Matches your Waybar) */
+    selected:        #B4BEFEFF; /* lavender: the primary highlight (Clean & Pro) */
+    active:          #74C7ECFF; /* sapphire: cool blue for secondary status */
+    urgent:          #F38BA8FF; /* red: soft pink/red for warnings */
+
+    /* System Mapping */
+    border-colour:    #B4BEFE66; /* lavender with 40% transparency for subtle borders */
+    separator-color:  #313244FF; /* surface0: subtle line for clean organization */
+    background-color: transparent;
+}

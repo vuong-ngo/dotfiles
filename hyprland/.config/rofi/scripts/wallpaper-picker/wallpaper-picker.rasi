@@ -1,0 +1,133 @@
+/*****----- Configuration for Wallpaper Picker -----*****/
+configuration {
+    show-icons:                 true;
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/color.rasi"
+
+* {
+    /* Mappings based on your Catppuccin Macchiato palette */
+    border-colour:               var(selected);
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background-alt);
+}
+
+/*****----- Main Window -----*****/
+window {
+    /* Full screen style but with margins for a "Floating" look */
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       80%;
+    height:                      50%;
+    
+    enabled:                     true;
+    border:                      2px solid;
+    border-radius:               24px; /* Smoother corners like Niri */
+    border-color:                @border-colour;
+    background-color:            @background-colour;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     20px;
+    padding:                     40px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar (Modern Search) -----*****/
+inputbar {
+    enabled:                     true;
+    margin:                      0% 20% 10px 20%;
+    padding:                     12px 25px;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    border:                      1px solid;
+    border-color:                rgba(148, 226, 213, 0.2); /* Soft Mint border */
+    border-radius:               100px;
+    spacing:                     10px;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    expand:                      false;
+    str:                         ""; /* Search icon */
+    font:                        "JetBrains Mono Nerd Font 13";
+    background-color:            transparent;
+    text-color:                  @selected;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 " Find your next vibe...";
+    placeholder-color:           inherit;
+}
+
+/*****----- Listview (The Gallery) -----*****/
+listview {
+    enabled:                     true;
+    columns:                     4; /* 4 columns is the sweet spot for 80% width */
+    lines:                       2;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     30px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      "default";
+}
+
+/*****----- Elements (The Cards) -----*****/
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     12px;
+    margin:                      0px;
+    padding:                     15px;
+    border-radius:               18px;
+    background-color:            rgba(255, 255, 255, 0.03); /* Glass card effect */
+    text-color:                  @foreground-colour;
+    cursor:                      pointer;
+}
+
+/* Hover & Selection Animation */
+element selected.normal {
+    background-color:            rgba(148, 226, 213, 0.15); /* Tinted Mint background */
+    border:                      2px solid;
+    border-color:                @selected;
+    text-color:                  @selected; /* Highlight text color */
+}
+
+element-icon {
+    background-color:            transparent;
+    size:                        220px; /* Perfectly sized for 4 columns */
+    cursor:                      inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+    border-radius:               12px;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    font:                        "JetBrains Mono NF Bold 10";
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}

@@ -1,0 +1,88 @@
+/* --- COLOR PALETTE: CATPPUCCIN MOCHA --- */
+@define-color background rgba(30, 30, 46, 0.9);
+@define-color background-alt #11111B;
+@define-color foreground #CDD6F4;
+@define-color mint #A6E3A1; /* Green */
+@define-color blue #89B4FA; /* Blue */
+@define-color pink #F38BA8; /* Red/Pink */
+@define-color border-color rgba(205, 214, 244, 0.1);
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "MesloLGLDZ Nerd Font", sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Floating Module Groups */
+.modules-left, .modules-center, .modules-right {
+    background-color: @background;
+    border: 1px solid @border-color;
+    border-radius: 14px; /* Bo tròn sâu hơn một chút */
+    padding: 2px 10px;
+}
+
+tooltip {
+    background: @background-alt;
+    border: 1px solid @blue;
+    border-radius: 10px;
+}
+tooltip label { color: @foreground; }
+
+/* --- Modules Styling --- */
+#workspaces button {
+    color: #6C7086; /* Màu xám nhạt khi chưa active */
+    padding: 0 6px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: @foreground;
+}
+#workspaces button.active {
+    color: @background-alt;
+    background-color: @blue;
+}
+#workspaces button.urgent {
+    background-color: @pink;
+    color: @background-alt;
+}
+
+#window, #clock, #battery, #pulseaudio, #network, #backlight {
+    color: @foreground;
+    padding: 0 8px;
+    margin: 4px 0;
+}
+
+/* Module Colors */
+#clock { color: #F5E0DC; }
+#battery { color: @mint; }
+#battery.warning { color: #FAB387; }
+#battery.critical:not(.charging) {
+    color: @pink;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    to { background-color: @pink; color: @background-alt; border-radius: 8px; }
+}
+
+#pulseaudio { color: #CBA6F7; }
+#network { color: #89DCEB; }
+#backlight { color: #F9E2AF; }
+
+#custom-launcher { color: @blue; font-size: 15px; padding: 0 10px 0 6px; }
+#custom-notification { color: @foreground; padding: 0 8px; }
+#custom-expand-icon { color: #94E2D5; padding: 0 6px; margin: 2px 0; }
+#custom-power { color: @pink; padding: 0 6px 0 10px; font-size: 14px; }

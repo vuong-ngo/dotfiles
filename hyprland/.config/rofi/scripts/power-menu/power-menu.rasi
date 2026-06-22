@@ -1,0 +1,96 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "~/.config/rofi/color.rasi"
+
+/*****----- Main Window -----*****/
+window {
+    transparency:       "real";
+    location:           center;
+    anchor:             center;
+    fullscreen:         false;
+    /* Wide enough to fit 5 buttons comfortably */
+    width:              850px;
+    border:             2px solid;
+    border-radius:      16px;
+    border-color:       @border-colour;
+    background-color:   @background;
+    padding:            30px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    spacing:            20px;
+    margin:             0px;
+    padding:            0px;
+    /* Removed 'inputbar' entirely to mimic wlogout */
+    children:           [ "message", "listview" ]; 
+}
+
+/*****----- Message (Greeting/Title) -----*****/
+message {
+    enabled:            true;
+    margin:             0px;
+    padding:            15px;
+    border-radius:      12px;
+    background-color:   @background-alt;
+    text-color:         @foreground;
+}
+
+textbox {
+    font:               "MesloLGLDZ Nerd Font Bold 14";
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+    /* Center the title text */
+    horizontal-align:   0.5;
+}
+
+/*****----- Listview (Button Grid) -----*****/
+listview {
+    enabled:            true;
+    /* 5 columns for 5 power options */
+    columns:            5;
+    /* Only 1 row */
+    lines:              1;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+    
+    /* Spacing between the buttons */
+    spacing:            20px;
+    background-color:   transparent;
+    text-color:         @foreground;
+    cursor:             "default";
+}
+
+/*****----- Elements (Individual Buttons) -----*****/
+element {
+    enabled:            true;
+    /* Large vertical padding to make them look like big square buttons */
+    padding:            40px 10px;
+    border-radius:      14px;
+    background-color:   @background-alt;
+    text-color:         @foreground;
+    cursor:             pointer;
+}
+
+/* Button state colors */
+element normal.normal { background-color: @background-alt; text-color: @foreground; }
+element selected.normal { background-color: @selected; text-color: @background-alt; }
+
+/* Text inside the button */
+element-text {
+    /* Large font size for the icon + text */
+    font:               "MesloLGLDZ Nerd Font Bold 11";
+    background-color:   transparent;
+    text-color:         inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    /* Center the text inside the button */
+    horizontal-align:   0.5;
+}

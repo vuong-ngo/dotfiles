@@ -1,0 +1,170 @@
+/*****----- Configuration -----*****/
+configuration {
+    modi:                       "drun,run,filebrowser,window";
+    font:                       "MesloLGLDZ Nerd Font Bold 10"; /* Clean UI font */
+    show-icons:                 true;
+    display-drun:               "  Apps";
+    display-run:                "  Run";
+    display-filebrowser:        "  Files";
+    display-window:             "  Windows";
+    drun-display-format:        "{name}";
+    window-format:              "{w} · {c} · {t}";
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/color.rasi"
+
+* {
+    /* Structural mappings required by Rofi components */
+    handle-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+    normal-background:           var(background);
+    normal-foreground:           var(foreground);
+    urgent-background:           var(urgent);
+    urgent-foreground:           var(background);
+    active-background:           var(active);
+    active-foreground:           var(background);
+    selected-normal-background:  var(selected);
+    selected-normal-foreground:  var(background-alt); /* Dark text on mint background */
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    fullscreen:                 false;
+    width:                      40%; /* Compact and elegant */
+    
+    /* Overall window styling */
+    border:                     2px solid;
+    border-radius:              16px;
+    border-color:               @border-colour;
+    background-color:           @background-colour;
+    cursor:                     "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    background-color:           transparent;
+    /* No padding here so the image banner touches the top and sides perfectly */
+    children:                   [ "inputbar", "listview", "mode-switcher" ];
+}
+
+/*****----- Inputbar (The Image Banner Header) -----*****/
+inputbar {
+    /* Huge top padding to create the banner height */
+    padding:                    80px 30px 20px 30px; 
+    
+    /* Load the currently active wallpaper from your custom path */
+    background-image:           url("~/.cache/current_wallpaper", width);
+    
+    background-color:           transparent;
+    spacing:                    15px;
+    children:                   [ "textbox-prompt-colon", "entry" ];
+}
+
+/* The Search Icon */
+textbox-prompt-colon {
+    expand:                     false;
+    str:                        "";
+    font:                       "JetBrains Mono Nerd Font 14";
+    
+    /* Solid background so it stands out against the wallpaper */
+    background-color:           @alternate-background;
+    text-color:                 @active; /* Cool blue icon */
+    padding:                    12px 17px;
+    border-radius:              10px;
+    vertical-align:             0.5;
+}
+
+/* The Search Input Field */
+entry {
+    /* Solid background for readability over the image */
+    background-color:           @alternate-background;
+    text-color:                 @foreground-colour;
+    padding:                    12px 20px;
+    border-radius:              10px;
+    cursor:                     text;
+    placeholder:                " Search applications...";
+    placeholder-color:          #64748B;
+    vertical-align:             0.5;
+}
+
+/*****----- Listview -----*****/
+listview {
+    columns:                    1;
+    lines:                      6; /* Balanced height */
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               true;
+    fixed-columns:              true;
+    
+    /* Internal spacing and padding */
+    spacing:                    8px;
+    padding:                    20px; /* Padding added back here */
+    background-color:           transparent;
+    text-color:                 @foreground-colour;
+    cursor:                     "default";
+}
+
+/*****----- Elements -----*****/
+element {
+    spacing:                    15px;
+    padding:                    10px 15px;
+    border-radius:              10px;
+    background-color:           transparent;
+    text-color:                 @foreground-colour;
+    cursor:                     pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color:           transparent;
+    text-color:                 var(normal-foreground);
+}
+
+element selected.normal {
+    background-color:           var(selected-normal-background);
+    text-color:                 var(selected-normal-foreground);
+}
+
+element-icon {
+    background-color:           transparent;
+    text-color:                 inherit;
+    size:                       32px; /* Crisp, large icons */
+    cursor:                     inherit;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    highlight:                  inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher {
+    spacing:                    15px;
+    padding:                    0px 20px 20px 20px; /* Padding for the bottom section */
+    background-color:           transparent;
+}
+
+button {
+    padding:                    10px 15px;
+    border-radius:              10px;
+    background-color:           @alternate-background;
+    text-color:                 @foreground-colour;
+    cursor:                     pointer;
+}
+
+button selected {
+    background-color:           var(selected-normal-background);
+    text-color:                 var(selected-normal-foreground);
+}

@@ -1,0 +1,136 @@
+/*****----- Configuration -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/color.rasi"
+
+* {
+    /* Mapping Catppuccin Macchiato */
+    border-colour:               var(selected);
+    background-colour:           var(background);
+    foreground-colour:           var(foreground);
+    alternate-background:        var(background-alt);
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    width:                       650px; /* Slightly slimmer for focus */
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      2px solid;
+    border-radius:               24px; /* Modern rounded corners */
+    border-color:                @border-colour;
+    background-color:            @background-colour;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     30px;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar (Modern Pill Design) -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px 0px 10px 0px;
+    padding:                     12px 20px;
+    border-radius:               100px; /* Perfect pill shape */
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+    children:                    [ "prompt", "entry" ];
+    border:                      1px solid;
+    border-color:                rgba(148, 226, 213, 0.2); /* Subtle glow */
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  @selected;
+    font:                        "JetBrainsMono NF Bold 13";
+    vertical-align:              0.5;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 " 󰅍 Search history (Alt + D (Delete); Alt + P (PIN))";
+    placeholder-color:           #64748B;
+    vertical-align:              0.5;
+    font:                        "Inter 11";
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     8px;
+    margin:                      0px;
+    padding:                     0px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      "default";
+}
+
+/*****----- Elements (Modern List Items) -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     12px 15px;
+    border-radius:               12px;
+    background-color:            transparent;
+    text-color:                  @foreground-colour;
+    cursor:                      pointer;
+}
+
+/* Selected state: Bright Mint/Teal with dark text */
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @background; /* Dark text for readability */
+    border:                      0px solid;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message (Optional Tooltip area) -----*****/
+message {
+    enabled:                     true;
+    margin:                      10px 0px 0px 0px;
+    padding:                     10px;
+    border-radius:               10px;
+    background-color:            @alternate-background;
+    text-color:                  @foreground-colour;
+}

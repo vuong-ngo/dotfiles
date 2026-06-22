@@ -1,0 +1,88 @@
+/* --- Rofi Theme: Keybindings Cheat Sheet --- */
+
+/* Import the color palette */
+@import                          "~/.config/rofi/color.rasi"
+
+* {
+    /* Switching to a Monospace font for perfect alignment and a "tech" feel */
+    text-color:       var(foreground);
+    font:             "JetBrains Mono Nerd Font 11"; 
+}
+
+window {
+    /* Wide board layout, giving plenty of room for 3 columns of text */
+    width:            85%;
+    height:           65%;
+    background-color: var(background);
+    border:           2px solid;
+    border-color:     var(border-colour);
+    border-radius:    12px; /* Sharper corners for a document look */
+    padding:          30px;
+}
+
+mainbox {
+    spacing:          20px;
+    children:         [ inputbar, listview ];
+}
+
+/* Minimalist Filter Bar (Underline style instead of a bulky box) */
+inputbar {
+    margin:           0px 0px 10px 0px;
+    background-color: transparent;
+    border:           0px 0px 2px 0px; /* Only a bottom border (underline) */
+    border-color:     var(background-alt);
+    padding:          5px 10px 15px 10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color:       var(selected); /* Mint prompt */
+    font:             "JetBrains Mono Nerd Font Bold 12";
+    padding:          0px 15px 0px 0px;
+}
+
+entry {
+    placeholder:      "Filter by keyword...";
+    text-color:       var(foreground);
+    placeholder-color: #64748B;
+}
+
+/* Dense, structured list view */
+listview {
+    columns:          3;
+    spacing:          4px; /* Very tight vertical spacing for high density */
+    scrollbar:        false;
+    fixed-height:     false;
+}
+
+element {
+    padding:          8px 12px; /* Minimal padding */
+    border-radius:    4px;
+    border:           0px 0px 0px 3px; /* Prepare a 3px left border for the indicator */
+    border-color:     transparent; /* Invisible by default */
+}
+
+/* Normal state: Plain text reading mode */
+element normal.normal {
+    background-color: transparent;
+    text-color:       var(foreground);
+}
+
+/* SELECTED state: Subtle row highlight with a left-bar indicator */
+element selected.normal {
+    background-color: var(background-alt); /* Very subtle dark highlight */
+    border-color:     var(selected); /* Mint left-border indicator appears */
+    text-color:       var(selected); /* Text turns Mint to stand out */
+}
+
+element-text {
+    vertical-align:   0.5;
+    background-color: transparent;
+    text-color:       inherit;
+}
+/* Ensure text stays properly aligned */
+element-text {
+    vertical-align:   0.5;
+    background-color: inherit;
+    text-color:       inherit;
+}

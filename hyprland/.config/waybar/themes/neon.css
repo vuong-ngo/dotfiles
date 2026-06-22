@@ -1,0 +1,85 @@
+/* --- COLOR PALETTE: CYBERPUNK NEON --- */
+@define-color background rgba(9, 9, 11, 0.85);
+@define-color background-alt #000000;
+@define-color foreground #FFFFFF;
+@define-color mint #00FFFF; /* Neon Cyan */
+@define-color blue #7DF9FF; /* Electric Blue */
+@define-color pink #FF003C; /* Neon Red/Pink */
+@define-color border-color rgba(0, 255, 255, 0.4); /* Viền phát sáng nhẹ */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "MesloLGLDZ Nerd Font", sans-serif;
+    font-size: 12.5px;
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar { background-color: transparent; }
+
+/* Floating Module Groups - Hiệu ứng hộp vuông vức hơn một chút */
+.modules-left, .modules-center, .modules-right {
+    background-color: @background;
+    border: 1px solid @border-color;
+    border-radius: 8px; /* Góc cạnh hơn */
+    padding: 0 8px;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.2); /* Hiệu ứng Glow nhẹ */
+}
+
+tooltip {
+    background: @background-alt;
+    border: 1px solid @mint;
+    border-radius: 4px;
+}
+tooltip label { color: @foreground; }
+
+/* --- Modules Styling --- */
+#workspaces button {
+    color: #888888;
+    padding: 0 6px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+}
+#workspaces button:hover {
+    background: rgba(0, 255, 255, 0.1);
+    color: @mint;
+}
+#workspaces button.active {
+    color: @background-alt;
+    background-color: @mint;
+    box-shadow: 0px 0px 8px rgba(0, 255, 255, 0.6);
+}
+#workspaces button.urgent { background-color: @pink; color: @foreground; }
+
+#window, #clock, #battery, #pulseaudio, #network, #backlight {
+    color: @foreground;
+    padding: 0 8px;
+    margin: 4px 0;
+}
+
+/* Module Colors */
+#clock { color: #FCEE0A; } /* Neon Yellow */
+#battery { color: @mint; }
+#battery.warning { color: #FF9900; }
+#battery.critical:not(.charging) {
+    color: @pink;
+    animation-name: blink;
+    animation-duration: 0.4s;
+    animation-timing-function: step-end;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+@keyframes blink {
+    to { background-color: @pink; color: @foreground; border-radius: 4px; }
+}
+
+#pulseaudio { color: #B026FF; } /* Neon Purple */
+#network { color: @blue; }
+#backlight { color: #FFFFFF; }
+
+#custom-launcher { color: #FCEE0A; font-size: 15px; padding: 0 10px 0 6px; }
+#custom-notification { color: @foreground; padding: 0 8px; }
+#custom-expand-icon { color: @mint; padding: 0 6px; margin: 2px 0; }
+#custom-power { color: @pink; padding: 0 6px 0 10px; font-size: 14px; }

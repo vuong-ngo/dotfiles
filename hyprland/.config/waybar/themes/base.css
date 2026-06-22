@@ -1,0 +1,118 @@
+/* Color Palette */
+@define-color background rgba(15, 23, 42, 0.9);
+@define-color background-alt #0B1220;
+@define-color foreground #E6EEF4;
+@define-color mint #6EE7B7;
+@define-color blue #60A5FA;
+@define-color pink #FB7185;
+@define-color border-color rgba(110, 231, 183, 0.3);
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "MesloLGLDZ Nerd Font";
+    font-size: 12.5px; /* Thu nhỏ font chữ để thanh lịch hơn */
+    font-weight: bold;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Floating Module Groups - Làm mỏng viền và đệm */
+.modules-left, .modules-center, .modules-right {
+    background-color: @background;
+    border: 1px solid @border-color; /* Viền mỏng 1px tinh tế */
+    border-radius: 12px;
+    padding: 0 8px;
+}
+
+tooltip {
+    background: @background-alt;
+    border: 1px solid @mint;
+    border-radius: 10px;
+}
+tooltip label {
+    color: @foreground;
+}
+
+/* --- Individual Modules Styling --- */
+
+#workspaces button {
+    color: @foreground;
+    padding: 0 6px;
+    margin: 4px 2px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button.active {
+    color: @background-alt;
+    background-color: @mint;
+}
+
+#workspaces button.urgent {
+    background-color: @pink;
+    color: @background-alt;
+}
+
+/* Ép khoảng cách các icon cho khít lại */
+#window, #clock, #battery, #pulseaudio, #network, #backlight {
+    color: @foreground;
+    padding: 0 8px;
+    margin: 4px 0;
+}
+
+/* Module Colors */
+#clock { color: @blue; }
+#battery { color: @mint; }
+#battery.warning { color: #F5A97F; }
+#battery.critical:not(.charging) {
+    color: @pink;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @pink;
+        color: @background-alt;
+        border-radius: 8px;
+    }
+}
+
+#pulseaudio { color: #C6A0F6; }
+#network { color: #8AADF4; }
+#backlight { color: #EED49F; }
+
+/* Interactive Custom Buttons */
+#custom-launcher {
+    color: @blue;
+    font-size: 15px;
+    padding: 0 10px 0 6px;
+}
+
+#custom-notification {
+    color: @foreground;
+    padding: 0 8px;
+}
+
+#custom-expand-icon {
+    color: #FFFFFF;
+    padding: 0 6px;
+    margin: 2px 0;
+}
+
+#custom-power {
+    color: @pink;
+    padding: 0 6px 0 10px;
+    font-size: 14px;
+}

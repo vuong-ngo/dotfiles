@@ -1,0 +1,171 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 26, 
+    "margin-top": 3,
+    "margin-left": 5,
+    "margin-right": 5,
+    "spacing": 1,
+
+    "modules-left": [
+        "custom/launcher",
+        "custom/keybinds",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "group/tray-expander",
+        "idle_inhibitor",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/power",
+    ],
+
+    "custom/launcher": {
+        "format": "",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/config.rasi",
+        "tooltip": false
+    },
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "1",
+            "2": "2",
+    	    "3": "3",
+	        "4": "4",
+	        "5": "5",
+	        "6": "6",
+	        "7": "7",
+	        "8": "8",
+	        "9": "9",
+	        "10": "0", 
+            "active": "󱓻"
+        }
+    },
+    
+    "clock": {
+	"interval": 60,
+        "format": "  {:%H:%M |  %d %b}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "on-click": "swaync-client -t -sw",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#bac2de'><b>{}</b></span>",
+                "days":       "<span color='#cdd6f4'><b>{}</b></span>",
+                "weeks":      "<span color='#89b4fa'><b>W{}</b></span>",
+                "weekdays":   "<span color='#f9e2af'><b>{}</b></span>",
+                "today":      "<span color='#f38ba8'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        }
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 Muted",
+        "on-click": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+",
+        "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", " ", " "]
+         } 
+    },
+
+    "network": {
+        "interval": 10,
+        "format-wifi": "  {essid}",
+        "format-ethernet": "󰈀  Wired",
+        "tooltip-format": "{essid} - {ifname} via {gwaddr}",
+        "format-linked": "󰈀  {ifname} (No IP)",
+        "format-disconnected": "⚠  Disconnected",
+        "format-disabled": "  Airplane Mode",
+        "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}"
+
+    },
+
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+
+    "group/tray-expander": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 600,
+        "children-class": "tray-group-item"
+      },
+        "modules": ["custom/expand-icon", "tray"]
+    },
+
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+
+    "custom/keybinds": {
+        "format": "K",
+        "on-click": "~/.config/rofi/scripts/keybindings-menu/keybindings-menu.sh",
+        "tooltip-format": "⌨️ Show Keybindings"
+    },
+
+    "custom/expand-icon": {
+        "format": "",
+        "tooltip": false,
+        "on-scroll-up": "",
+        "on-scroll-down": "",
+        "on-scroll-left": "",
+        "on-scroll-right": ""
+    },
+
+    "custom/power": {
+        "format": "",
+        "on-click": "~/.config/rofi/scripts/power-menu/power-menu.sh",
+        "tooltip": false
+    }
+}

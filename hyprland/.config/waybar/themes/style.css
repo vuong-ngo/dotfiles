@@ -1,0 +1,131 @@
+/* --- Global Settings --- */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    min-height: 0;
+    min-width: 0;
+    border: none;
+    border-radius: 5px;
+    box-shadow: none;
+}
+
+/* --- The Unified Background Bar --- */
+window#waybar {
+    background: rgba(30, 30, 46, 0.9); 
+    color: #cdd6f4;
+    transition: background-color 0.2s ease;
+}
+
+/* --- Container Styling --- */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: transparent;
+}
+
+/* --- Base Styling for Items --- */
+.horizontal .modules-left > widget > *,
+.horizontal .modules-center > widget > *,
+.horizontal .modules-right > widget > * {
+    padding: 0 12px;
+    margin: 0;
+}
+
+.vertical .modules-left > widget > *,
+.vertical .modules-center > widget > *,
+.vertical .modules-right > widget > * {
+    padding: 12px 0;
+    margin: 0;
+}
+
+/* --- Left Modules --- */
+#custom-launcher {
+    color: #07cdf5;
+    font-size: 16px;
+    padding-left: 16px;
+}
+
+/* --- Workspaces --- */
+#workspaces button {
+    color: #6c7086;
+    padding: 0 6px;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    color: #bac2de;
+    background: transparent; 
+    box-shadow: none;
+}
+
+/* ACTIVE Workspace State */
+#workspaces button.active {
+    color: #a6e3a1;
+    background: transparent;
+    border-bottom: 2px solid #a6e3a1;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#window { 
+    color: #a6adc8; 
+    font-weight: 400;
+}
+
+/* --- Center Module --- */
+#clock { 
+    color: #cdd6f4;
+    font-weight: 700;
+}
+
+/* --- Right Modules --- */
+#backlight { color: #f9e2af; }
+#pulseaudio { color: #89b4fa; }
+#network { color: #cba6f7; }
+#custom-keybinds { color: #94e2d5; }
+#battery { color: #a6e3a1; } 
+#network.disabled { color: #f38ba8; }
+#custom-power {
+    color: #f38ba8;
+    font-size: 15px;
+    padding-right: 16px;
+}
+
+#backlight:hover, 
+#pulseaudio:hover, 
+#network:hover, 
+#battery:hover, 
+#tray:hover, 
+#custom-keybinds:hover,
+#custom-power:hover {
+    color: #bac2de;
+    background: transparent;
+}
+
+#idle_inhibitor {
+    margin-right: 10px;
+    padding: 0 10px;
+    border-radius: 10px;
+    color: #6EE7B7;
+    background-color: rgba(30, 41, 59, 0.5);
+}
+
+#idle_inhibitor.activated {
+    color: #1E293B;
+    background-color: #6EE7B7;
+}
+
+/* Battery Handling */
+#battery.warning { color: #f9e2af; }
+#battery.critical:not(.charging) {
+    color: #f38ba8;
+    animation: blink 1.5s linear infinite;
+}
+#battery.charging { color: #a6e3a1; }
+
+/* --- Animations --- */
+@keyframes blink {
+    50% { opacity: 0.3; }
+}

@@ -1,0 +1,106 @@
+/* --- Waybar Configuration: Professional Systems Edition --- */
+/* --- Optimized for Ngô Đức Vương | Acer Nitro --- */
+
+* {
+    font-family: "JetBrainsMono Nerd Font", "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 2; /* Forced sharp corners for a technical look */
+}
+
+/* THE MAIN BAR - Solid, dark, and unified */
+window#waybar {
+    background: rgba(17, 17, 27, 0.95); /* Catppuccin Crust - Deep Matte Black */
+    color: #cdd6f4;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7); /* Thin Lavender bottom accent */
+    margin: 0; /* Fits edge-to-edge for a cleaner system look */
+    transition: all 0.3s ease;
+}
+
+/* Container for module groups */
+.modules-left, .modules-center, .modules-right {
+    background: transparent;
+    padding: 2px 4px;
+}
+
+/* --- BASE STYLING FOR ALL MODULES --- */
+#custom-launcher,
+#workspaces,
+#clock,
+#idle_inhibitor,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#custom-power,
+#custom-keybinds {
+    background: transparent;
+    color: #cdd6f4;
+    padding: 0 6px;
+    margin: 0 1px; /* Tight spacing for a dense information density */
+}
+
+/* --- LEFT SECTION --- */
+#custom-launcher {
+    color: #89b4fa; /* Blue Arch Icon */
+    font-size: 16px;
+    padding-left: 10px;
+}
+
+#custom-keybinds {
+    color: #94e2d5; /* Teal Keybinds */
+}
+
+#workspaces button {
+    color: #585b70; /* Surface1 - Dimmed inactive workspaces */
+    padding: 0 6px;
+    border-radius: 0;
+}
+
+#workspaces button.active {
+    color: #b4befe; /* Lavender - Active state */
+    background: rgba(180, 190, 254, 0.1); /* Subtle highlight block */
+    border-bottom: 2px solid #b4befe; /* Indicator line for focus */
+}
+
+/* --- CENTER SECTION (CLOCK) --- */
+#clock {
+    color: #cdd6f4; 
+    font-weight: 800;
+    padding: 0 15px;
+}
+
+/* --- RIGHT SECTION (SYSTEM INDICATORS) --- */
+/* Using specific Catppuccin colors for icons/text only */
+#idle_inhibitor { color: #fab387; } /* Peach */
+#backlight      { color: #f9e2af; } /* Yellow */
+#pulseaudio     { color: #89b4fa; } /* Blue */
+#network        { color: #cba6f7; } /* Mauve */
+#battery        { color: #a6e3a1; } /* Green */
+
+/* Battery Warning States */
+#battery.warning { color: #fab387; }
+#battery.critical:not(.charging) {
+    color: #f38ba8; /* Red alert */
+    animation: blink 1s steps(5, start) infinite;
+}
+
+#custom-power {
+    color: #f38ba8; /* Red Power Button */
+    padding-right: 12px;
+}
+
+/* --- INTERACTIVE EFFECTS --- */
+#backlight:hover, 
+#pulseaudio:hover, 
+#network:hover, 
+#battery:hover {
+    background: rgba(255, 255, 255, 0.05); /* Highlight on hover */
+    color: #ffffff;
+}
+
+/* Blink Animation for Critical Alerts */
+@keyframes blink {
+    to { opacity: 0.4; }
+}

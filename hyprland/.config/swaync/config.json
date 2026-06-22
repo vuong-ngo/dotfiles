@@ -1,0 +1,109 @@
+{
+  "$schema": "/etc/swaync/config.schema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-width": 320,
+  "control-center-margin-top": 20,
+  "control-center-margin-right": 20,
+  "control-center-margin-bottom": 50,
+  "notification-window-width": 300,
+  "notification-icon-size": 48,
+  "transition-length": 150,
+  "timeout": 2,
+  "timeout-low": 2,
+  "timeout-critical": 0,
+
+  "widgets": [
+    "title",
+    "mpris",
+    "volume",
+    "backlight",
+    "buttons-grid",
+    "menubar#power",
+    "dnd",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Control Center",
+      "clear-all-button": true,
+      "button-text": "󰎟 Clear All"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 50,
+      "image-radius": 11
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "backlight": {
+      "label": "󰃠"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰖩 ",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰂯",
+          "command": "blueman-manager"
+        },
+        {
+          "label": " ",
+          "type": "toggle",
+          "command": "bash ~/.config/hypr/scripts/airplane_mode.sh",
+          "update-command": "sh -c 'nmcli radio wifi | grep -q \"disabled\" && echo true || echo false'",
+          "interval": 1
+        },
+        {
+          "label": "󰛨 ",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/night_light.sh'",
+          "update-command": "pgrep -x wlsunset > /dev/null && echo true || echo false",
+          "interval": 1
+        },
+        {
+          "label": "󰌪",
+          "type": "toggle",
+          "command": "bash -c '~/.config/hypr/scripts/power_save_toggle.sh'",
+          "update-command": "powerprofilesctl get | grep -q power-saver && echo true || echo false",
+          "interval": 1
+        }
+      ]
+    },
+    "menubar#power": {
+      "menu#profile": {
+        "label": "󰓅   Power Profiles Daemon",
+        "position": "right",
+        "actions": [
+          {
+            "label": "󰓅  Performance",
+            "type": "toggle",
+            "command": "~/.config/hypr/scripts/power_mode.sh performance",
+            "update-command": "powerprofilesctl get | grep -q performance && echo true || echo false",
+            "interval": 1
+          },
+          {
+            "label": "󰾆  Balanced",
+            "type": "toggle",
+            "command": "~/.config/hypr/scripts/power_mode.sh balanced",
+            "update-command": "powerprofilesctl get | grep -q balanced && echo true || echo false",
+            "interval": 1
+          },
+          {
+            "label": "󰌪  Power Saver",
+            "type": "toggle",
+            "command": "~/.config/hypr/scripts/power_mode.sh power-saver",
+            "update-command": "powerprofilesctl get | grep -q power-saver && echo true || echo false",
+          "interval": 1
+          }
+        ]
+      }
+    }
+  }
+}
