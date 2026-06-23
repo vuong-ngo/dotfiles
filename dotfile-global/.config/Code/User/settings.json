@@ -1,0 +1,57 @@
+{
+    /* ==========================================================================
+    1. PERFORMANCE & ACCELERATION
+    ========================================================================== */
+    "editor.smoothScrolling": true,                 // Enable hardware-accelerated smooth scrolling for the editor
+    "workbench.list.smoothScrolling": true,         // Enable smooth scrolling for lists and tree views (Sidebar)
+    "terminal.integrated.smoothScrolling": true,    // Enable smooth scrolling for the integrated terminal
+    "editor.cursorBlinking": "smooth",              // Smooth fading animation for cursor blinking (Vim/Emacs style)
+    "editor.cursorSmoothCaretAnimation": "on",      // Enable fluid caret animation when moving the cursor
+    "editor.padding.top": 12,                       // Add padding at the top of the editor layout
+    "editor.padding.bottom": 12,                    // Add padding at the bottom of the editor layout
+
+    /* ==========================================================================
+    2. UI MINIMALISM & CLEAN BEAUTY
+    ========================================================================== */
+    "workbench.startupEditor": "none",              // Disable the welcome/get started page on startup
+    "editor.minimap.enabled": false,                // Disable the code minimap to save memory and maximize screen space
+    "workbench.statusBar.visible": true,            // Keep the status bar visible but streamlined
+    "window.menuBarVisibility": "toggle",           // Hide the top menu bar (press Alt to reveal on X11/XWayland)
+    "editor.guides.bracketPairs": "active",         // Show indentation guides only for the active bracket pair
+    "editor.guides.indentation": false,             // Hide general indentation vertical lines
+    "editor.renderLineHighlight": "all",            // Highlight both the active line gutter and background
+    "editor.scrollbar.vertical": "visible",
+    "editor.scrollbar.verticalScrollbarSize": 10,   // Thin vertical scrollbar for a sleek layout
+    "editor.scrollbar.horizontal": "hidden",        // Hide the horizontal scrollbar
+
+    /* ==========================================================================
+    3. TYPOGRAPHY & FONT SETUP
+    ========================================================================== */
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', 'Fira Code', monospace",
+    "editor.fontSize": 14.0,                        // Optimal font size for crisp rendering on Full HD displays
+    "editor.fontWeight": "700",                     // Bold font weight to improve readability and reduce eye strain
+    "editor.fontLigatures": true,                   // Enable font ligatures (e.g., renders '->' as a structural arrow)
+    "editor.lineHeight": 22,                        // Line height bounding to provide comfortable vertical breathing room
+    "workbench.iconTheme": "vscode-icons",          // Use the "vscode-icons" theme for a visually appealing icon set
+
+    /* ==========================================================================
+    4. SMART CODE EDITING
+    ========================================================================== */
+    "editor.quickSuggestions": {
+        "other": "on",
+        "comments": "off",                            // Disable quick suggestions inside comments to prevent distractions
+        "strings": "on"
+    },
+    "editor.suggestSelection": "first",             // Always pre-select the most accurate autocomplete suggestion
+    "editor.wordWrap": "on",                        // Automatically wrap long lines horizontally
+    "editor.linkedEditing": true,                   // Automatically mirror edits to matching HTML/XML tags
+    "editor.bracketPairColorization.enabled": true, // Enable native colorization for nested bracket pairs
+
+    /* ==========================================================================
+    5. FILE MANAGEMENT & TELEMETRY
+    ========================================================================== */
+    "files.autoSave": "off",                        // Handle saving manually to ensure format-on-save triggers correctly
+    "files.trimTrailingWhitespace": true,           // Automatically strip trailing whitespaces on save
+    "files.insertFinalNewline": true,               // Automatically append a trailing blank line on save (POSIX standard)
+    "telemetry.telemetryLevel": "off",              // Disable data collection and diagnostic reporting to Microsoft
+}
