@@ -12,6 +12,7 @@ These files are situated under `.config/` (or in the root of the user home folde
 dotfile-global/
 ├── .config/
 │   ├── btop/             # Btop system monitor theme and options
+│   ├── Code/             # Config visual code
 │   ├── MangoHud/         # MangoHud gaming statistics overlay config
 │   ├── nvim/             # LazyVim text editor configuration
 │   ├── terminal/         # Configs for Kitty, Alacritty, and Foot terminals
