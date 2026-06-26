@@ -1,5 +1,9 @@
 # 💻 Arch Linux Dotfiles Suite (Niri + Hyprland + Sway)
 
+<img src="preview/asset/teacupbirdi-cute.gif" width="140" align="right" />
+
+🚀 Ultimate Arch Linux setup optimized for Wayland (Niri, Hyprland, Sway). Features fluid physics-based animations, hybrid NVIDIA laptop tuning, and a keyboard-driven Vim/Tmux development workflow.
+
 This is a personal repository containing configuration files (dotfiles) for **Arch Linux**, optimized for high performance, smooth window transitions, and terminal productivity on Wayland. It features configurations for **Niri WM**, **Hyprland**, and **Sway WM**, alongside pre-configured Neovim, Tmux, Zsh, and system maintenance utilities.
 
 ---
@@ -7,9 +11,11 @@ This is a personal repository containing configuration files (dotfiles) for **Ar
 ## 📸 Desktop Previews
 
 ### 🌌 Niri Window Manager (Main)
+
 ![Niri Window Manager Preview](preview/preview-wm-niri-2026-06-20%2012-05-05.png)
 
 ### ⚡ Hyprland Window Manager
+
 ![Hyprland Window Manager Preview](preview/preview-wm-hyprland-2026-03-09%2019-48-10.png)
 
 ---
@@ -51,6 +57,7 @@ Click on the links below to access the dedicated README documentation for each e
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
+
 * Operating System: **Arch Linux**
 * Recommended AUR Helper: **`yay`** (can be installed using [install_yay_AUR.sh](file:///home/ngoducvuong/Documents/Projects/dotfiles/install-arch/install_yay_AUR.sh))
 * Common Utilities: `kitty`, `neovim`, `tmux`, `yazi`, `rofi-wayland`, `swaync`, `hyprlock`, `hypridle`, `timeshift`.
@@ -60,15 +67,16 @@ Click on the links below to access the dedicated README documentation for each e
 To deploy these dotfiles, clone the repository and run symlink commands:
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/vuong-ngo/dotfiles.git ~/dotfiles
    cd ~/dotfiles
    ```
-
 2. **Deploy Global Configurations**:
+
    ```bash
    mkdir -p ~/.config
-   
+
    # Symlink shells & system-wide configs
    ln -sf ~/dotfiles/dotfile-global/.zshrc ~/.zshrc
    ln -s ~/dotfiles/dotfile-global/.config/nvim ~/.config/nvim
@@ -79,8 +87,8 @@ To deploy these dotfiles, clone the repository and run symlink commands:
    ln -sf ~/dotfiles/dotfile-global/.config/clean.sh ~/.config/clean.sh
    ln -sf ~/dotfiles/dotfile-global/.config/snapshot.sh ~/.config/snapshot.sh
    ```
-
 3. **Deploy Window Manager of Choice**:
+
    * **For Niri**:
      ```bash
      ln -s ~/dotfiles/niri/.config/niri ~/.config/niri
@@ -110,5 +118,5 @@ To deploy these dotfiles, clone the repository and run symlink commands:
 This project is licensed under the **MIT License**. For details, please see the [LICENSE](file:///LICENSE) file.
 
 ---
-*Maintained and customized by **Vuong Ngo** © 2026.*
 
+*Maintained and customized by **Vuong Ngo** © 2026.*
