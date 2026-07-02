@@ -1,8 +1,8 @@
 // ================================================
-//   _   ____  ______  _  _______  _  ___________ 
+//   _   ____  ______  _  _______  _  ___________
 //  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
 //  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
-//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/
 // ================================================
 
 // =====================================
@@ -11,29 +11,37 @@
 // https://niri-wm.github.io/niri/Configuration%3A-Animations.html
 
 animations {
-    slowdown 0.9
+    // 0.0 là tốc độ vô hạn, 1.0 là mặc định. Giữ ở mức 1.0 hoặc tắt hẳn đi để tránh bị delay nhân tạo.
+    slowdown 1.0
 
+    // Hiệu ứng khi mở cửa sổ: Mượt mà, bung ra êm ái
     window-open {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=0.75 stiffness=400 epsilon=0.0001
     }
 
+    // Hiệu ứng khi đóng cửa sổ: Biến mất nhanh gọn để không tốn thời gian đợi
     window-close {
-        spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=0.85 stiffness=500 epsilon=0.0001
     }
 
+    // Quan trọng nhất: Hiệu ứng cuộn màn hình ngang đặc trưng của Niri
+    // Hạ stiffness xuống 350 giúp các cột cửa sổ lướt đi cực kỳ bồng bềnh và êm mắt
     horizontal-view-movement {
-        spring damping-ratio=0.75 stiffness=600 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=350 epsilon=0.0001
     }
 
+    // Hiệu ứng dịch chuyển vị trí cửa sổ (khi bạn đổi chỗ các ô code)
     window-movement {
-        spring damping-ratio=1.0 stiffness=700 epsilon=0.0001
+        spring damping-ratio=0.8 stiffness=400 epsilon=0.0001
     }
 
+    // Hiệu ứng co giãn kích thước cửa sổ: Cần stiffness cao hơn một chút để khung hình bám sát tay khi bạn kéo thả/resize
     window-resize {
-        spring damping-ratio=0.85 stiffness=1500 epsilon=0.0001
+        spring damping-ratio=0.82 stiffness=600 epsilon=0.0001
     }
 
+    // Hiệu ứng khi bạn bật/tắt chế độ xem tổng quan (Overview mode)
     overview-open-close {
-        spring damping-ratio=0.8 stiffness=1000 epsilon=0.0001
+        spring damping-ratio=0.78 stiffness=450 epsilon=0.0001
     }
 }

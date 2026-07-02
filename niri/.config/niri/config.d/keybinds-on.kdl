@@ -39,10 +39,10 @@ binds {
     Mod+B { spawn "sh" "-c" "if pgrep -x waybar > /dev/null; then pkill waybar; else waybar & disown; fi"; }
 
     // ============ SCREENSHOTS ============
-    Print        { screenshot; }
-    Mod+Shift+S  { screenshot; }
-    Mod+Print    { screenshot-screen; }
-    Shift+Print    { screenshot-window; }
+    Mod+Shift+S { screenshot; }
+    Print { screenshot; }
+    Mod+Print { screenshot-screen; }
+    Shift+Print { screenshot-window; }
 
     // ============ RESIZE WINDOWS ============
     Mod+Ctrl+Right { set-column-width "+40"; }
@@ -89,7 +89,7 @@ binds {
 
     Mod+Alt+K { focus-workspace-up; }
     Mod+Alt+J   { focus-workspace-down; }
-    
+
     Mod+U { focus-workspace-up; }
     Mod+D   { focus-workspace-down; }
 
@@ -130,6 +130,9 @@ binds {
     Mod+Shift+Alt+K   { move-window-to-workspace-up; }
     Mod+Shift+Alt+J { move-window-to-workspace-down; }
 
+    Mod+Shift+U   { move-window-to-workspace-up; }
+    Mod+Shift+D { move-window-to-workspace-down; }
+
     Mod+Alt+Left { consume-or-expel-window-left; }
     Mod+Alt+Right { consume-or-expel-window-right; }
 
@@ -149,7 +152,7 @@ binds {
     // ============ SIZE ============
     Mod+Ctrl+F { expand-column-to-available-width; }
     Mod+Alt+F  { toggle-windowed-fullscreen; }
-    Mod+Shift+R { switch-preset-window-height; }
+    Mod+Shift+O { switch-preset-window-height; }
     Mod+Ctrl+R { reset-window-height; }
     Mod+C      { center-column; }
 

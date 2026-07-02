@@ -1,8 +1,8 @@
 // ================================================
-//   _   ____  ______  _  _______  _  ___________ 
+//   _   ____  ______  _  _______  _  ___________
 //  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
 //  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
-//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/
 // ================================================
 
 // =====================================
@@ -12,7 +12,7 @@
 
 overview {
     zoom 0.5
-    backdrop-color "#ffffff"
+    backdrop-color "#000000"
     workspace-shadow { off; }
 }
 
@@ -26,7 +26,7 @@ layout {
     center-focused-column "never"
     empty-workspace-above-first
     background-color "transparent"
-    
+
     // default windows
     preset-column-widths {
         proportion 0.5
@@ -40,8 +40,6 @@ layout {
         proportion 1.0;
     }
 
-    // appearence
-    
     // off all effects
     focus-ring { off; }
     shadow { off; }
@@ -49,15 +47,14 @@ layout {
     border {
         on
         width 2
-        active-color "#ffffff7b"
-        urgent-color "#9b0000"
+        active-color "#ffffffb0"
     }
 
     insert-hint {
         on
         color "#ffffff49"
     }
-    
+
     struts {
         left 0
         right 0
@@ -72,14 +69,14 @@ layout {
 // https://niri-wm.github.io/niri/Configuration%3A-Recent-Windows.html
 recent-windows {
     on
-    debounce-ms 350
+    debounce-ms 200
     open-delay-ms 150
 
     highlight {
         active-color "#ffffff7b"
         urgent-color "#ff9999ff"
-        padding 30
-        corner-radius 0
+        padding 50
+        corner-radius 15
     }
 
     previews {
@@ -99,7 +96,7 @@ recent-windows {
 // https://niri-wm.github.io/niri/Configuration%3A-Window-Rules.html
 
 window-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 10
     clip-to-geometry true
     draw-border-with-background false
     shadow { off; }
@@ -132,7 +129,7 @@ window-rule {
 window-rule {
     match app-id="gnome-calculator"
     match app-id="org.gnome.Calculator"
-    
+
     open-floating true
     default-column-width { proportion 0.2; }
     default-window-height { proportion 0.5; }
@@ -152,15 +149,10 @@ window-rule {
     match app-id=r#".*DAMX$"#
     match app-id=r#"org\.gtk\.FileChooserDialog"#
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    
+
     open-floating true
     default-column-width { proportion 0.6; }
     default-window-height { proportion 0.6; }
-}
-
-window-rule {
-    match app-id="foot"
-    default-window-height { proportion 1.0; }
 }
 
 window-rule {
@@ -174,7 +166,7 @@ window-rule {
 window-rule {
     match app-id="^steam_app_"
     match title=".exe$"
-    
+
     // Niri's equivalent to Hyprland's 'immediate'
     variable-refresh-rate true
 }
@@ -183,15 +175,8 @@ window-rule {
 window-rule {
     match is-window-cast-target=true
 
-    focus-ring {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
-    }
-
-    border {
-        inactive-color "#7d0d2d"
-    }
-
+    focus-ring { off;}
+    border { off; }
     shadow { off; }
 
     tab-indicator {
@@ -205,10 +190,10 @@ window-rule {
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
 layer-rule {
-    geometry-corner-radius 8
+    geometry-corner-radius 10
     popups {
         // Match the default GTK 3 popup corner radius.
-        geometry-corner-radius 8
+        geometry-corner-radius 10
     }
 }
 
