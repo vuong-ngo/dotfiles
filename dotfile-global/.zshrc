@@ -35,21 +35,8 @@ export ARCHFLAGS="-arch $(uname -m)"
 
 # === ENVIRONMENT ===
 # Pyenv (manage python version)
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
-
 # Java (manage java version)
-
-# Added by Antigravity CLI installer
-export PATH="/home/ngoducvuong/.local/bin:$PATH"
 
 # === ALIAS ===
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
-alias performance="~/.config/niri/scripts/power_mode.sh"
-alias clean-script="~/.config/clean.sh"
-alias snapshot-script="~/.config/snapshot.sh"
-
-
-
