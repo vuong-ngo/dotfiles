@@ -47,7 +47,7 @@ layout {
     border {
         on
         width 2
-        active-color "#ffffffb0"
+        active-color "#ffffff44"
     }
 
     insert-hint {
@@ -96,9 +96,11 @@ recent-windows {
 // https://niri-wm.github.io/niri/Configuration%3A-Window-Rules.html
 
 window-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 15
     clip-to-geometry true
     draw-border-with-background false
+    tiled-state true
+    scroll-factor 0.75
     shadow { off; }
 }
 
@@ -190,10 +192,10 @@ window-rule {
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
 layer-rule {
-    geometry-corner-radius 10
+    geometry-corner-radius 15
     popups {
         // Match the default GTK 3 popup corner radius.
-        geometry-corner-radius 10
+        geometry-corner-radius 15
     }
 }
 
