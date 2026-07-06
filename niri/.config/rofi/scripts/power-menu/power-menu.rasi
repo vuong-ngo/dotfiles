@@ -15,7 +15,7 @@ window {
     /* Wide enough to fit 5 buttons comfortably */
     width:              850px;
     border:             2px solid;
-    border-radius:      5px;
+    border-radius:      15px;
     border-color:       @border-colour;
     background-color:   @background;
     padding:            30px;

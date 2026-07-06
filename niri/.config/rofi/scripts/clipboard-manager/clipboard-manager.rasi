@@ -19,7 +19,7 @@ window {
     transparency:                "real";
     location:                    center;
     anchor:                      center;
-    width:                       650px; /* Slightly slimmer for focus */
+    width:                       500px; /* Slightly slimmer for focus */
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -27,7 +27,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               5px; /* Modern rounded corners */
+    border-radius:               15px; /* Modern rounded corners */
     border-color:                @border-colour;
     background-color:            @background-colour;
     cursor:                      "default";
@@ -61,7 +61,7 @@ prompt {
     enabled:                     true;
     background-color:            transparent;
     text-color:                  @selected;
-    font:                        "JetBrainsMono NF Bold 13";
+    font:                        "JetBrainsMono NF Bold 12";
     vertical-align:              0.5;
 }
 
@@ -73,7 +73,7 @@ entry {
     placeholder:                 " Search history (Alt + D (Delete); Alt + P (PIN))";
     placeholder-color:           #64748B;
     vertical-align:              0.5;
-    font:                        "Inter 11";
+    font:                        "Inter 10";
 }
 
 /*****----- Listview -----*****/

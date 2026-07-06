@@ -15,7 +15,7 @@ THEME="$HOME/.config/rofi/scripts/clipboard-manager/clipboard-manager.rasi"
 
 # Function to generate the Rofi list
 get_list() {
-    echo "󰎟 Clear History (Keep Pins)"
+    echo "󰎟 Clear History"
     
     # 1. Show Pinned Items (📌)
     for f in "$PIN_DIR"/*.preview; do
@@ -35,7 +35,7 @@ get_list() {
 # Run Rofi with custom keybindings:
 # Alt+P (Pin) -> Custom 1 (Exit code 10)
 # Alt+D (Delete/Unpin) -> Custom 2 (Exit code 11)
-RESULT=$(get_list | rofi -dmenu -i -p "󰅌 Clipboard" \
+RESULT=$(get_list | rofi -dmenu -i -p "󰅌 " \
     -kb-custom-1 "alt+p" \
     -kb-custom-2 "alt+d" \
     -mesg "Enter: Copy | Alt+P: Pin | Alt+D: Delete" \

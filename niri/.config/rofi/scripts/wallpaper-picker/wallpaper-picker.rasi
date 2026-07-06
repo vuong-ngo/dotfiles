@@ -24,12 +24,12 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       80%;
-    height:                      42%;
+    width:                       70%;
+    height:                      40%;
     
     enabled:                     true;
     border:                      2px solid;
-    border-radius:               5px; /* Smoother corners like Niri */
+    border-radius:               15px; /* Smoother corners like Niri */
     border-color:                @border-colour;
     background-color:            @background-colour;
     cursor:                      "default";
@@ -101,7 +101,7 @@ element {
     spacing:                     5px;
     margin:                      0px;
     padding:                     10px;
-    border-radius:               5px;
+    border-radius:               15px;
     background-color:            rgba(255, 255, 255, 0.03); /* Glass card effect */
     text-color:                  @foreground-colour;
     cursor:                      pointer;
