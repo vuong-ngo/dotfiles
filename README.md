@@ -23,9 +23,9 @@ This is a personal repository containing configuration files (dotfiles) for **Ar
 ## 🌟 Key Features
 
 * **Multiple Compositors**: Modular dotfiles for next-generation Wayland window managers:
-  * **[Niri WM](file:///niri/README.md)**: A scrollable-tiling compositor with physics-based spring animations.
-  * **[Hyprland](file:///hyprland/README.md)**: A highly-stylized dynamic tiling manager with smooth bezier transitions.
-  * **[Sway WM](file:///sway/README.md)**: A robust, low-overhead tiling compositor behaving as an `i3` replacement.
+  * **[Niri WM](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/README.md)**: A scrollable-tiling compositor with physics-based spring animations.
+  * **[Hyprland](file:///home/ngoducvuong/Documents/Projects/dotfiles/hyprland/README.md)**: A highly-stylized dynamic tiling manager with smooth bezier transitions.
+  * **[Sway WM](file:///home/ngoducvuong/Documents/Projects/dotfiles/sway/README.md)**: A robust, low-overhead tiling compositor behaving as an `i3` replacement.
 * **NVIDIA & Wayland Optimizations**: Tailored settings ensuring Electron-based apps (VS Code, Discord, Obsidian) run with full hardware acceleration on hybrid Intel/NVIDIA laptop displays.
 * **LazyVim Editor**: Pre-configured Neovim IDE setup with LSP completion, custom keymaps, and quick launch speeds.
 * **Global CLI Productivity**: Zsh shell configs (Oh My Zsh, auto-suggestions, syntax-highlighting), **Tmux** terminal multiplexer, and **Yazi** file manager.
@@ -115,7 +115,7 @@ To deploy these dotfiles, clone the repository and run symlink commands:
 
 ## 📄 License
 
-This project is licensed under the **MIT License**. For details, please see the [LICENSE](file:///LICENSE) file.
+This project is licensed under the **MIT License**. For details, please see the [LICENSE](file:///home/ngoducvuong/Documents/Projects/dotfiles/LICENSE) file.
 
 ---
 

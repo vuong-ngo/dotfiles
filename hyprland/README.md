@@ -36,10 +36,10 @@ hyprland/.config/
 ## 🚀 Key Configurations
 
 ### 1. Modular Architecture (`config.d/`)
-The [hyprland.conf](file:///hyprland/.config/hypr/hyprland.conf) imports configs from the `config.d/` folder using the `source` command:
-* **[appearance.conf](file:///hyprland/.config/hypr/config.d/appearance.conf)**: Sets beautiful thin borders, active borders color gradients (Tokyo Night theme style), margins, and window roundings.
-* **[animations.conf](file:///hyprland/.config/hypr/config.d/animations.conf)**: Declares custom `bezier` curves and controls transition speeds for workspaces, window spawning, scaling, and slide transitions.
-* **[rules.conf](file:///hyprland/.config/hypr/config.d/rules.conf)**: Automates rules like floating for calculator and audio controllers, pinning dialog boxes, and assigning specific workspaces for heavy applications like web browsers or Discord.
+The [hyprland.conf](file:///home/ngoducvuong/Documents/Projects/dotfiles/hyprland/.config/hypr/hyprland.conf) imports configs from the `config.d/` folder using the `source` command:
+* **[appearance.conf](file:///home/ngoducvuong/Documents/Projects/dotfiles/hyprland/.config/hypr/config.d/appearance.conf)**: Sets beautiful thin borders, active borders color gradients (Tokyo Night theme style), margins, and window roundings.
+* **[animations.conf](file:///home/ngoducvuong/Documents/Projects/dotfiles/hyprland/.config/hypr/config.d/animations.conf)**: Declares custom `bezier` curves and controls transition speeds for workspaces, window spawning, scaling, and slide transitions.
+* **[rules.conf](file:///home/ngoducvuong/Documents/Projects/dotfiles/hyprland/.config/hypr/config.d/rules.conf)**: Automates rules like floating for calculator and audio controllers, pinning dialog boxes, and assigning specific workspaces for heavy applications like web browsers or Discord.
 
 ### 2. Hardware and Environment Helpers (`hypr/scripts/`)
 These custom helper scripts run in the background or are triggered by hardware keys:

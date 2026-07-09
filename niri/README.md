@@ -38,10 +38,10 @@ niri/.config/
 
 ### 1. Modular Configurations (`config.d/`)
 Instead of a single monolithic KDL file, configurations are loaded via the `include` directive in [config.kdl](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/config.kdl):
-* **[environments.kdl](file:///niri/.config/niri/config.d/environments.kdl)**: Sets up variables for Electron apps to run natively on Wayland, sets theme cursors, and registers Fcitx5 for Vietnamese input.
-* **[appearance.kdl](file:///niri/.config/niri/config.d/appearance.kdl)**: Configures layout parameters, gaps (active/inactive), and inactive/active border styling.
-* **[animations.kdl](file:///niri/.config/niri/config.d/animations.kdl)**: Tailors smooth physics-based spring animations for window transitions and workspace scrolling.
-* **[keybinds.kdl](file:///niri/.config/niri/config.d/keybinds.kdl)**: Maps keybindings for opening terminal emulator, launchers, layout modifications, and workspace switching.
+* **[environments.kdl](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/config.d/environments.kdl)**: Sets up variables for Electron apps to run natively on Wayland, sets theme cursors, and registers Fcitx5 for Vietnamese input.
+* **[appearance.kdl](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/config.d/appearance.kdl)**: Configures layout parameters, gaps (active/inactive), and inactive/active border styling.
+* **[animations.kdl](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/config.d/animations.kdl)**: Tailors smooth physics-based spring animations for window transitions and workspace scrolling.
+* **[keybinds.kdl](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/config.d/keybinds.kdl)**: Maps keybindings for opening terminal emulator, launchers, layout modifications, and workspace switching.
 
 ### 2. Lock & Idle Manager (`hypr/`)
 Uses the Hyprland security ecosystem for locking and power saving:
@@ -49,7 +49,7 @@ Uses the Hyprland security ecosystem for locking and power saving:
 * **`hypridle`**: Set up to automatically dim the screen, trigger lockscreen via `hyprlock` after inactivity, and turn off display outputs to conserve energy on laptop battery.
 
 ### 3. Dynamic Keybindings Toggler (VM & Gaming Mode)
-Includes a custom script [toggle_keybinds.sh](file:///niri/.config/niri/scripts/toggle_keybinds.sh) bound to `Mod + Ctrl + Alt + K`. 
+Includes a custom script [toggle_keybinds.sh](file:///home/ngoducvuong/Documents/Projects/dotfiles/niri/.config/niri/scripts/toggle_keybinds.sh) bound to `Mod + Ctrl + Alt + K`. 
 * **Normal Mode**: Active keybindings configuration symlinked to `keybinds-on.kdl`.
 * **Passthrough Mode**: Symlinked to the empty `keybinds-off.kdl`, disabling all Niri hotkeys (except the toggle itself). Excellent when running virtual machines, playing keyboard-heavy video games, or using nested remote desktop connections.
 
