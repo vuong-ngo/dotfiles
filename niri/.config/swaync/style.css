@@ -1,19 +1,19 @@
 /* ==========================================================================
-   CATPPUCCIN MOCHA LAVENDER - FLAT MODERN & MINIMAL FLUENT STYLE
+   GRAPHITE BLACKNESS - FLAT MODERN & MINIMAL FLUENT STYLE
    ========================================================================== */
 
-@define-color base      #1e1e2e;
-@define-color mantle    #11111b; /* Darker tone for crisp component contrast */
-@define-color crust     #09090d;
-@define-color surface0  #313244;
-@define-color surface1  #45475a;
-@define-color text      #cdd6f4;
-@define-color subtext0  #a6adc8;
+@define-color base      #1a1a1a;
+@define-color mantle    #0d0d0d; /* Darker tone for crisp component contrast */
+@define-color crust     #000000;
+@define-color surface0  #2b2b2b;
+@define-color surface1  #3d3d3d;
+@define-color text      #ffffff;
+@define-color subtext0  #a0a0a0;
 
 /* Solid Accent Colors */
-@define-color lavender  #b4befe; /* Main active accent */
-@define-color mauve     #cba6f7; /* Secondary accent */
-@define-color red       #f38ba8; /* Destructive actions */
+@define-color accent  #ffffff; /* Main active accent */
+@define-color accent2     #b0b0b0; /* Secondary accent */
+@define-color red       #ffffff; /* Destructive actions */
 
 /* --- RESET & GLOBAL SETTINGS --- */
 * {
@@ -32,19 +32,19 @@
 /* --- MAIN CONTROL CENTER WINDOW --- */
 .control-center {
   background: alpha(@base, 0.85); /* Semi-transparent solid glass effect */
-  border: 1.5px solid alpha(@lavender, 0.25); /* Subtle crisp solid border */
-  border-radius: 20px; /* Large corner radius matching Niri layout */
-  padding: 18px; 
+  border: 1.5px solid alpha(@accent, 0.25); /* Subtle crisp solid border */
+  border-radius: 0px;
+  padding: 18px;
   margin: 10px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
 }
 
 /* --- SYSTEM WIDGET CONTAINER LAYOUT --- */
-.widget-title, .widget-dnd, .widget-volume, 
+.widget-title, .widget-dnd, .widget-volume,
 .widget-backlight, .widget-buttons-grid {
   background: alpha(@mantle, 0.65); /* Solid dark translucent containers */
   border: 1px solid alpha(white, 0.03);
-  border-radius: 14px;
+  border-radius: 0px;
   margin: 0px 0px 10px 0px;
   padding: 14px;
 }
@@ -60,7 +60,7 @@
   font-size: 16px;
   font-weight: 800;
   letter-spacing: 0.5px;
-  color: @lavender;
+  color: @accent;
 }
 .widget-title > button {
   background: alpha(@surface0, 0.7);
@@ -91,7 +91,7 @@
   margin: 3.5px;
 }
 .widget-dnd > switch:checked {
-  background: @lavender;
+  background: @accent;
 }
 .widget-dnd > switch:checked slider {
   background: @base;
@@ -108,7 +108,7 @@ scale trough {
   min-height: 14px; /* Thick pill layout resembling premium OS sliders */
 }
 scale highlight {
-  background: @lavender; /* Solid active fill */
+  background: @accent; /* Solid active fill */
   border-radius: 12px;
 }
 scale slider {
@@ -135,20 +135,20 @@ scale slider {
 
 /* Hover State: Highlights border and lifts the button slightly */
 .widget-buttons-grid > flowbox > flowboxchild > button:hover {
-  border-color: alpha(@lavender, 0.4);
+  border-color: alpha(@accent, 0.4);
   background: alpha(@surface1, 0.6);
   transform: translateY(-1px);
 }
 
 /* Checked/Active State: When the feature is toggled ON (Airplane, Keep Awake, etc.) */
 .widget-buttons-grid > flowbox > flowboxchild > button:checked {
-  background: @lavender;
+  background: @accent;
   color: @base; /* Inverts text color for high contrast against light background */
 }
 
 /* Hover state while the toggle is already ON */
 .widget-buttons-grid > flowbox > flowboxchild > button:checked:hover {
-  background: alpha(@lavender, 0.85);
+  background: alpha(@accent, 0.85);
   color: @base;
 }
 
@@ -162,12 +162,12 @@ scale slider {
 }
 .notification:hover {
   background: alpha(@surface0, 0.8);
-  border-color: alpha(@lavender, 0.2);
+  border-color: alpha(@accent, 0.2);
   transform: scale(1.01); /* Micro-scaling effect on focus */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
 }
-.notification-content { 
-  padding: 14px; 
+.notification-content {
+  padding: 14px;
 }
 
 /* --- CLOSE BUTTON --- */
