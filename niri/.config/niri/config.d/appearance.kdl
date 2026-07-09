@@ -12,7 +12,7 @@
 
 overview {
     zoom 0.5
-    backdrop-color "#000000"
+    backdrop-color "#0d0d0d"
     workspace-shadow { off; }
 }
 
@@ -47,12 +47,13 @@ layout {
     border {
         on
         width 2
-        active-color "#ffffff44"
+        active-color "#ffffffaa"
+        inactive-color "#2b2b2baa"
     }
 
     insert-hint {
         on
-        color "#ffffff49"
+        color "#ffffff66"
     }
 
     struts {
@@ -73,10 +74,10 @@ recent-windows {
     open-delay-ms 150
 
     highlight {
-        active-color "#ffffff7b"
-        urgent-color "#ff9999ff"
-        padding 50
-        corner-radius 15
+        active-color "#ffffffaa"
+        urgent-color "#ffffffff"
+        padding 10
+        corner-radius 0
     }
 
     previews {
@@ -96,7 +97,7 @@ recent-windows {
 // https://niri-wm.github.io/niri/Configuration%3A-Window-Rules.html
 
 window-rule {
-    geometry-corner-radius 15
+    geometry-corner-radius 0
     clip-to-geometry true
     draw-border-with-background false
     tiled-state true
@@ -182,8 +183,8 @@ window-rule {
     shadow { off; }
 
     tab-indicator {
-        active-color "#f38ba8"
-        inactive-color "#7d0d2d"
+        active-color "#ffffff"
+        inactive-color "#262626"
     }
 }
 
@@ -192,10 +193,10 @@ window-rule {
 // =====================================
 // https://niri-wm.github.io/niri/Configuration%3A-Layer-Rules.html
 layer-rule {
-    geometry-corner-radius 15
+    geometry-corner-radius 0
     popups {
         // Match the default GTK 3 popup corner radius.
-        geometry-corner-radius 15
+        geometry-corner-radius 0
     }
 }
 

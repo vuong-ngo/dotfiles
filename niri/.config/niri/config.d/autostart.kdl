@@ -1,8 +1,8 @@
 // ================================================
-//   _   ____  ______  _  _______  _  ___________ 
+//   _   ____  ______  _  _______  _  ___________
 //  | | / / / / / __ \/ |/ / ___/ / |/ / ___/ __ \
 //  | |/ / /_/ / /_/ /    / (_ / /    / (_ / /_/ /
-//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/ 
+//  |___/\____/\____/_/|_/\___/ /_/|_/\___/\____/
 // ================================================
 
 // =====================================
@@ -20,7 +20,6 @@ spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-xsettings"
 spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-power"
 spawn-at-startup "/usr/lib/gnome-settings-daemon/gsd-keyboard"
 
-// spawn-at-startup "waybar"
 spawn-at-startup "swaync"
 spawn-at-startup "hypridle"
 spawn-sh-at-startup "swaybg -i $HOME/.cache/current_wallpaper -m fill"
