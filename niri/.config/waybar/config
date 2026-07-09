@@ -23,7 +23,7 @@
         "custom/power"
     ],
     "custom/launcher": {
-        "format": "",
+        "format": " ",
         "on-click": "rofi -show drun -theme ~/.config/rofi/config.rasi",
         "tooltip": false
     },
@@ -48,11 +48,11 @@
             "weeks-pos": "none",
             "on-scroll": 1,
             "format": {
-                "months": "<span color='#bac2de'><b>{}</b></span>",
-                "days": "<span color='#cdd6f4'><b>{}</b></span>",
-                "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
-                "weekdays": "<span color='#f9e2af'><b>{}</b></span>",
-                "today": "<span color='#f38ba8'><b><u>{}</u></b></span>"
+                "months": "<span color='#a0a0a0'><b>{}</b></span>",
+                "days": "<span color='#ffffff'><b>{}</b></span>",
+                "weeks": "<span color='#b0b0b0'><b>W{}</b></span>",
+                "weekdays": "<span color='#e8e8e8'><b>{}</b></span>",
+                "today": "<span color='#ffffff'><b><u>{}</u></b></span>"
             }
         },
         "actions": {
@@ -64,8 +64,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": " ",
+            "deactivated": " "
         },
         "tooltip": true,
         "tooltip-format-activated": "Presentation Mode: Active",
@@ -107,10 +107,10 @@
     "network": {
         "interval": 10,
         "format-wifi": "  {essid}",
-        "format-ethernet": "󰈀  Wired",
+        "format-ethernet": "󰈀 Wired",
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
-        "format-linked": "󰈀  {ifname} (No IP)",
-        "format-disconnected": "⚠  Disconnected",
+        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-disconnected": "⚠ Disconnected",
         "format-disabled": "  Airplane Mode",
         "format-alt": "{ifname} {signalStrength}%: {ipaddr}/{cidr}",
         "tooltip-format": "Interface: {ifname}\nGW: {gwaddr}\nIP: {ipaddr}"
