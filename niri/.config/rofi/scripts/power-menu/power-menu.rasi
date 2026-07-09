@@ -41,7 +41,7 @@ message {
 }
 
 textbox {
-    font:               "MesloLGLDZ Nerd Font Bold 20";
+    font:               "JetBrainsMono NF Bold 20";
     background-color:   transparent;
     text-color:         inherit;
     vertical-align:     0.5;
@@ -73,7 +73,7 @@ element {
     enabled:            true;
     /* Large vertical padding to make them look like big square buttons */
     padding:            40px 10px;
-    border-radius:      10px;
+    border-radius:      5px;
     background-color:   @background-alt;
     text-color:         @foreground;
     cursor:             pointer;
@@ -86,7 +86,7 @@ element selected.normal { background-color: @selected; text-color: @background-a
 /* Text inside the button */
 element-text {
     /* Large font size for the icon + text */
-    font:               "MesloLGLDZ Nerd Font Bold 11";
+    font:               "JetBrainsMono NF Bold 11";
     background-color:   transparent;
     text-color:         inherit;
     cursor:             inherit;

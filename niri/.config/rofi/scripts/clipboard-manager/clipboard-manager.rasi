@@ -73,7 +73,7 @@ entry {
     placeholder:                 "  Search history (Alt + D (Delete); Alt + P (PIN))";
     placeholder-color:           #3D3D3D;
     vertical-align:              0.5;
-    font:                        "Inter 10";
+    font:                        "JetBrainsMono NF Bold 10";
 }
 
 /*****----- Listview -----*****/

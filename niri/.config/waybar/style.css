@@ -31,7 +31,6 @@
 window#waybar {
     background: transparent;
     color: @text;
-    border: 1px solid alpha(@text, 0.05); /* Invisible micro edge */
     border-radius: 0px; /* Aggressive roundness like an iPhone Island */
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
 }
@@ -62,6 +61,7 @@ tooltip label {
 #tray {
     background: @surface0; /* No blocky containers inside the island */
     color: @text;
+    border: 2px solid alpha(@text, 0.8); /* Invisible micro edge */
     padding: 2px 8px; /* Safe padding for perfect vertical layout */
     margin: 0px 1px;  /* Minimal vertical footprint */
 }

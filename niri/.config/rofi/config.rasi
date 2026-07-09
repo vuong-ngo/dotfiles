@@ -1,7 +1,7 @@
 /*****----- Configuration -----*****/
 configuration {
     modi:                       "drun,run,window";
-    font:                       "MesloLGLDZ Nerd Font Bold 10";
+    font:                       "JetBrainsMono NF Bold 10";
     show-icons:                 true;
     display-drun:               " Apps";
     display-run:                " Run";
@@ -60,7 +60,7 @@ textbox-prompt-colon {
     background-color:           transparent;
     text-color:                 var(selected);
     vertical-align:             0.5;
-    font:                       "MesloLGLDZ Nerd Font Bold 12";
+    font:                       "JetBrainsMono NF Bold 12";
 }
 
 entry {

@@ -17,7 +17,7 @@
 
 /* --- RESET & GLOBAL SETTINGS --- */
 * {
-  font-family: 'JetBrainsMono Nerd Font', 'Inter', sans-serif;
+  font-family: 'JetBrainsMono NF Bold 12', 'Inter', sans-serif;
   font-size: 13px;
   font-weight: 600;
   color: @text;
@@ -33,7 +33,7 @@
 .control-center {
   background: alpha(@base, 0.85); /* Semi-transparent solid glass effect */
   border: 1.5px solid alpha(@accent, 0.25); /* Subtle crisp solid border */
-  border-radius: 0px;
+  border-radius: 0px; /* Large corner radius matching Niri layout */
   padding: 18px;
   margin: 10px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
@@ -44,7 +44,7 @@
 .widget-backlight, .widget-buttons-grid {
   background: alpha(@mantle, 0.65); /* Solid dark translucent containers */
   border: 1px solid alpha(white, 0.03);
-  border-radius: 0px;
+  border-radius: 14px;
   margin: 0px 0px 10px 0px;
   padding: 14px;
 }
