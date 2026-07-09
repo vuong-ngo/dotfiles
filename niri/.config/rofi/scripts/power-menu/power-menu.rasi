@@ -15,7 +15,7 @@ window {
     /* Wide enough to fit 5 buttons comfortably */
     width:              850px;
     border:             2px solid;
-    border-radius:      15px;
+    border-radius:      0px;
     border-color:       @border-colour;
     background-color:   @background;
     padding:            30px;
@@ -27,7 +27,7 @@ mainbox {
     margin:             0px;
     padding:            0px;
     /* Removed 'inputbar' entirely to mimic wlogout */
-    children:           [ "message", "listview" ]; 
+    children:           [ "message", "listview" ];
 }
 
 /*****----- Message (Greeting/Title) -----*****/
@@ -35,13 +35,13 @@ message {
     enabled:            true;
     margin:             0px;
     padding:            15px;
-    border-radius:      12px;
+    border:             2px solid;
     background-color:   @background-alt;
     text-color:         @foreground;
 }
 
 textbox {
-    font:               "MesloLGLDZ Nerd Font Bold 14";
+    font:               "MesloLGLDZ Nerd Font Bold 20";
     background-color:   transparent;
     text-color:         inherit;
     vertical-align:     0.5;
@@ -60,7 +60,7 @@ listview {
     dynamic:            true;
     scrollbar:          false;
     layout:             vertical;
-    
+
     /* Spacing between the buttons */
     spacing:            20px;
     background-color:   transparent;
@@ -73,7 +73,7 @@ element {
     enabled:            true;
     /* Large vertical padding to make them look like big square buttons */
     padding:            40px 10px;
-    border-radius:      14px;
+    border-radius:      10px;
     background-color:   @background-alt;
     text-color:         @foreground;
     cursor:             pointer;

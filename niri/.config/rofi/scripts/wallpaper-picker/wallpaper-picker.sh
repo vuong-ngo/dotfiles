@@ -69,11 +69,11 @@ ln -sf "$FULL_PATH" "$LOCK_BG"
 if command -v swaybg >/dev/null 2>&1; then
     # SYSTEMS LOGIC: Kill previous swaybg instances to prevent memory leaks
     pkill swaybg || true
-    
+
     # Run swaybg in the background (detached)
     # Mode 'fill' is best for 16:9 laptop screens
     swaybg -i "$FULL_PATH" -m fill &
-    
+
     notify-send -h string:x-dunst-stack-tag:wallpaper "Wallpaper" "Applied: $selected_name"
 else
     notify-send -u critical "Error" "swaybg is not installed. Run: sudo pacman -S swaybg"

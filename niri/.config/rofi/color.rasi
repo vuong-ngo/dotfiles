@@ -1,19 +1,19 @@
-/* Optimized for High-Contrast & System Engineering Workflow */
+/* Graphite Blackness Theme - Pure black & white, no color accents */
 
 * {
-    /* Main Backgrounds - Using Mocha Base with 90% Opacity */
-    background:      #1E1E2EE6; /* base: deep obsidian navy */
-    background-alt:  #181825FF; /* mantle: darker for depth/separation */
-    foreground:      #CDD6F4FF; /* text: clean, soft white */
+    /* Main Backgrounds - Pure Black with ~90% Opacity */
+    background:      #1A1A1AE6; /* base: near-pure black */
+    background-alt:  #0D0D0DFF; /* pure black, deepest layer */
+    foreground:      #FFFFFFFF; /* text: pure white */
     
-    /* Lavender & Sapphire Accents (Matches your Waybar) */
-    selected:        #B4BEFEFF; /* lavender: the primary highlight (Clean & Pro) */
-    active:          #74C7ECFF; /* sapphire: cool blue for secondary status */
-    urgent:          #F38BA8FF; /* red: soft pink/red for warnings */
+    /* Grayscale Accents (Matches your Waybar) */
+    selected:        #FFFFFFFF; /* white: primary highlight */
+    active:          #CFCFCFFF; /* light gray: secondary status */
+    urgent:          #FFFFFFFF; /* white: warning/urgent, max contrast */
 
     /* System Mapping */
-    border-colour:    #B4BEFE66; /* lavender with 40% transparency for subtle borders */
-    separator-color:  #313244FF; /* surface0: subtle line for clean organization */
+    border-colour:    #FFFFFF66; /* white with 40% transparency for subtle borders */
+    separator-color:  #2B2B2BFF; /* dark gray: subtle line for clean organization */
     background-color: transparent;
 }
 

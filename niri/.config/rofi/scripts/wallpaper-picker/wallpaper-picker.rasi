@@ -7,29 +7,30 @@ configuration {
 @import                         "~/.config/rofi/color.rasi"
 
 * {
-    /* Mappings based on your Catppuccin Macchiato palette */
+    /* Mappings based on the shared grayscale palette (color.rasi) */
     border-colour:               var(selected);
     handle-colour:               var(selected);
     background-colour:           var(background);
     foreground-colour:           var(foreground);
     alternate-background:        var(background-alt);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background-alt);
+    selected-normal-foreground:  var(background); /* Chữ màu tối trên nền sáng khi được chọn */
 }
 
 /*****----- Main Window -----*****/
 window {
-    /* Full screen style but with margins for a "Floating" look */
     transparency:                "real";
-    location:                    center;
-    anchor:                      center;
+    location:                    west; /* Neo vào bên trái màn hình */
+    anchor:                      west;
     fullscreen:                  false;
-    width:                       70%;
-    height:                      40%;
-    
+    width:                       350px; /* Chiều rộng cố định cho Sidebar */
+    height:                      98%;   /* Chiều cao gần tràn viền */
+    x-offset:                    15px;  /* Cách lề trái 15px để tạo cảm giác trôi nổi */
+    y-offset:                    0px;
+
     enabled:                     true;
     border:                      2px solid;
-    border-radius:               15px; /* Smoother corners like Niri */
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            @background-colour;
     cursor:                      "default";
@@ -39,7 +40,7 @@ window {
 mainbox {
     enabled:                     true;
     spacing:                     20px;
-    padding:                     40px;
+    padding:                     25px; /* Giảm padding để phù hợp với chiều ngang hẹp */
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
@@ -47,20 +48,20 @@ mainbox {
 /*****----- Inputbar (Modern Search) -----*****/
 inputbar {
     enabled:                     true;
-    margin:                      0% 20% 10px 20%;
-    padding:                     12px 10px;
+    margin:                      0px; /* Xóa margin cũ để thanh search trải đều */
+    padding:                     12px 15px;
     background-color:            @alternate-background;
     text-color:                  @foreground-colour;
-    border:                      1px solid;
-    border-color:                rgba(148, 226, 213, 0.2); /* Soft Mint border */
-    border-radius:               5px;
-    spacing:                     5px;
+    border:                      2px solid;
+    border-color:                rgba(255, 255, 255, 0.2);
+    border-radius:               0px;
+    spacing:                     10px;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
 textbox-prompt-colon {
     expand:                      false;
-    str:                         " "; /* Search icon */
+    str:                         " ";
     font:                        "JetBrains Mono Nerd Font 13";
     background-color:            transparent;
     text-color:                  @selected;
@@ -71,15 +72,15 @@ entry {
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 " Find your next vibe...";
-    placeholder-color:           inherit;
+    placeholder:                 " Find vibe...";
+    placeholder-color:           #ffffff;
 }
 
 /*****----- Listview (The Gallery) -----*****/
 listview {
     enabled:                     true;
-    columns:                     5; /* 5 columns is the sweet spot for 80% width */
-    lines:                       2;
+    columns:                     1; /* 1 cột duy nhất */
+    lines:                       4; /* Số lượng ảnh hiển thị cùng lúc (có thể tăng/giảm) */
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
@@ -87,8 +88,8 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
-    spacing:                     20px;
+
+    spacing:                     10px;
     background-color:            transparent;
     text-color:                  @foreground-colour;
     cursor:                      "default";
@@ -100,28 +101,27 @@ element {
     orientation:                 vertical;
     spacing:                     5px;
     margin:                      0px;
-    padding:                     10px;
-    border-radius:               15px;
-    background-color:            rgba(255, 255, 255, 0.03); /* Glass card effect */
+    padding:                     5px;
+    border-radius:               5px;
+    background-color:            transparent;
     text-color:                  @foreground-colour;
     cursor:                      pointer;
 }
 
 /* Hover & Selection Animation */
 element selected.normal {
-    background-color:            rgba(148, 226, 213, 0.15); /* Tinted Mint background */
-    border:                      2px solid;
-    border-color:                @selected;
-    text-color:                  @selected; /* Highlight text color */
+    background-color:            @selected-normal-background;
+    text-color:                  @selected-normal-foreground;
+    border:                      0px;
 }
 
 element-icon {
     background-color:            transparent;
-    size:                        200px; /* Perfectly sized for 4 columns */
+    size:                        180px; /* Thu nhỏ ảnh để vừa với cột 350px */
     cursor:                      inherit;
     horizontal-align:            0.5;
     vertical-align:              0.5;
-    border-radius:               12px;
+    border-radius:               10px;
 }
 
 element-text {
