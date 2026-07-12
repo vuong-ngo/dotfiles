@@ -18,7 +18,9 @@ run = "leave"
 desc = "Go back to the parent directory"
 
 prepend_keymap = [
-    # glow.yazi  ctrl+e , ctrl+y
+    # Generic preview-scroll keys (Yazi's built-in "seek" command) - work
+    # with any previewer that implements peek/seek, including glow's
+    # markdown rendering (see yazi.toml) and the built-in code previewer.
     { on = ["<C-e>"], run = "seek 5" },
     { on = ["<C-y>"], run = "seek -5" },
 ]
@@ -30,5 +32,8 @@ desc = "Extract the selected archive"
 
 [[mgr.prepend_keymap]]
 on   = "T"
-run  = "plugin max-preview"
+# max-preview.yazi is deprecated (see its own README) in favor of
+# toggle-pane.yazi, the official yazi-rs replacement - same key, same
+# result, actively maintained.
+run  = "plugin toggle-pane max-preview"
 desc = "Maximize or restore preview"
