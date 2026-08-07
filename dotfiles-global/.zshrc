@@ -4,8 +4,16 @@ fastfetch -c ~/.config/fastfetch/config_lightweight_arch.jsonc
 # === CONFIGURE ===
 autoload -Uz compinit
 compinit
-
 eval "$(starship init zsh)"
+
+# === KEYBIND ===
+# Custom keybind like vim
+bindkey -v
+
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+bindkey -M vicmd '^?' backward-delete-char
+bindkey -M viins '^?' backward-delete-char
 
 # === FLAGS ===
 # Compilation flags
@@ -24,11 +32,9 @@ else
 fi
 export VISUAL=nvim
 
-
 # === PLUGINS ===
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 
 # === ENVIRONMENT ===
 # Added by Antigravity CLI installer
@@ -39,6 +45,3 @@ export PATH="/home/ngoducvuong/.local/bin:$PATH"
 # === ALIAS ===
 alias zshconfig="mate ~/.zshrc"
 source ~/.config/niri/scripts/aliases.sh
-
-
-

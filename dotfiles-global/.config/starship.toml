@@ -1,0 +1,93 @@
+# ============================================================
+# Starship Prompt Configuration (Clean & Compact)
+# ============================================================
+
+add_newline = false
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$python\
+$nodejs\
+$rust\
+$golang\
+$cmd_duration\
+$status
+$character"""
+
+# ------------------------------------------------------------
+# 1. Directory (Clean Path & Home Icon)
+# ------------------------------------------------------------
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold #38bdf8"
+truncation_length = 3
+truncation_symbol = "…/"
+home_symbol = "󰋜 ~"
+read_only = " 󰌾"
+read_only_style = "bold #f43f5e"
+
+# ------------------------------------------------------------
+# 2. Git Branch & Status
+# ------------------------------------------------------------
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = "󰘬 "
+style = "bold #c084fc"
+
+[git_status]
+format = "([$all_status$ahead_behind]($style) )"
+style = "bold #fb923c"
+conflicted = "󰞇 "
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+modified = "~${count}"
+staged = "+${count}"
+
+# ------------------------------------------------------------
+# 3. Environment & Tools (Clean Version Formatting)
+# ------------------------------------------------------------
+[python]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "bold #facc15"
+
+[nodejs]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "bold #4ade80"
+
+[rust]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "bold #f97316"
+
+[golang]
+format = "[$symbol($version)]($style) "
+symbol = " "
+style = "bold #22d3ee"
+
+# ------------------------------------------------------------
+# 4. Command Duration & Status
+# ------------------------------------------------------------
+[cmd_duration]
+min_time = 2_000
+format = "[󱎫 $duration]($style) "
+style = "bold #fbbf24"
+
+[status]
+format = "[$symbol$status]($style) "
+symbol = "✘ "
+style = "bold #f43f5e"
+disabled = false
+
+# ------------------------------------------------------------
+# 5. Prompt Character
+# ------------------------------------------------------------
+[character]
+success_symbol = "[❯](bold #34d399)"
+error_symbol = "[❯](bold #f43f5e)"
+vimcmd_symbol = "[❮](bold #38bdf8)"

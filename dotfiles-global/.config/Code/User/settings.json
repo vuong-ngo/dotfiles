@@ -1,0 +1,193 @@
+{
+    // --- CURSOR & SCROLLING ANIMATIONS ---
+    "editor.cursorSmoothCaretAnimation": "on",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorStyle": "block",
+    "editor.cursorWidth": 2,
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "terminal.integrated.smoothScrolling": true,
+
+    // --- UI & TYPOGRAPHY ---
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'JetBrains Mono', 'Fira Code', monospace",
+    "editor.fontSize": 14.0,
+    "editor.fontWeight": "600",
+    "editor.lineHeight": 22,
+    "editor.minimap.enabled": false,
+    "workbench.startupEditor": "none",
+    "workbench.statusBar.visible": true,
+    "window.menuBarVisibility": "toggle",
+    "editor.renderLineHighlight": "all",
+    "editor.lineNumbers": "on",
+    "editor.wordWrap": "on",
+    "workbench.iconTheme": "vscode-icons",
+
+    // --- VIM EXTENSION SMOOTH PERFORMANCE CONFIG ---
+    "vim.enableExtension": true,
+    "vim.startInInsertMode": false,
+    "vim.leader": "<space>",
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.incsearch": true,
+    "vim.useCtrlKeys": true,
+    "vim.surround": true,
+    "vim.easymotion": true,
+    "vim.overrideCopyPasteKeys": true,
+
+    // Define keys handled by Vim extension vs VS Code
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-x>": false,
+        "<C-a>": false,
+        "<C-f>": false,
+        "<C-z>": false,
+        "<C-h>": true,
+        "<C-j>": true,
+        "<C-k>": true,
+        "<C-l>": true,
+        "<C-o>": true,
+        "<C-i>": true,
+        "<C-u>": true,
+        "<C-d>": true,
+        "<C-r>": true
+    },
+
+    // Cursor Styling per Mode
+    "vim.cursorStylePerMode.normal": "block",
+    "vim.cursorStylePerMode.insert": "line",
+    "vim.cursorStylePerMode.replace": "underline",
+    "vim.cursorStylePerMode.visual": "block-outline",
+    "vim.cursorStylePerMode.visualline": "block-outline",
+    "vim.cursorStylePerMode.visualblock": "block-outline",
+
+    // --- INSERT MODE MAPPINGS ---
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["k", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+
+    // --- NORMAL MODE MAPPINGS ---
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // Natural line wrapping navigation
+        {
+            "before": ["j"],
+            "after": ["g", "j"]
+        },
+        {
+            "before": ["k"],
+            "after": ["g", "k"]
+        },
+        // Quick Save / Quit
+        {
+            "before": ["<leader>", "w"],
+            "commands": ["workbench.action.files.save"]
+        },
+        {
+            "before": ["<leader>", "q"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        {
+            "before": ["<leader>", "Q"],
+            "commands": ["workbench.action.closeAllEditors"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "commands": ["workbench.action.files.save", "workbench.action.closeActiveEditor"]
+        },
+        // Clear Search Highlight
+        {
+            "before": ["<leader>", "h"],
+            "commands": [":nohlsearch"]
+        },
+        // Explorer Sidebar Toggle & Focus
+        {
+            "before": ["<leader>", "e"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        },
+        // Split Management (Leader + | & Leader + -)
+        {
+            "before": ["<leader>", "|"],
+            "commands": ["workbench.action.splitEditor"]
+        },
+        {
+            "before": ["<leader>", "-"],
+            "commands": ["workbench.action.splitEditorDown"]
+        },
+        {
+            "before": ["<leader>", "s", "v"],
+            "commands": ["workbench.action.splitEditor"]
+        },
+        {
+            "before": ["<leader>", "s", "h"],
+            "commands": ["workbench.action.splitEditorDown"]
+        },
+        {
+            "before": ["<leader>", "s", "c"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        // Buffer / Tab Navigation
+        {
+            "before": ["L"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["H"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        {
+            "before": ["]", "b"],
+            "commands": ["workbench.action.nextEditor"]
+        },
+        {
+            "before": ["[", "b"],
+            "commands": ["workbench.action.previousEditor"]
+        },
+        {
+            "before": ["<leader>", "b", "d"],
+            "commands": ["workbench.action.closeActiveEditor"]
+        },
+        // Move Lines Up / Down (Alt + j/k)
+        {
+            "before": ["<A-j>"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["<A-k>"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        }
+    ],
+
+    // --- VISUAL MODE MAPPINGS ---
+    "vim.visualModeKeyBindingsNonRecursive": [
+        // Keep Visual Selection when Indenting
+        {
+            "before": ["<"],
+            "commands": ["editor.action.outdentLines"]
+        },
+        {
+            "before": [">"],
+            "commands": ["editor.action.indentLines"]
+        },
+        // Move Lines Up / Down in Visual Mode
+        {
+            "before": ["<A-j>"],
+            "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+            "before": ["<A-k>"],
+            "commands": ["editor.action.moveLinesUpAction"]
+        },
+        // Paste over visual selection without losing clipboard
+        {
+            "before": ["p"],
+            "after": ["\"", "_", "d", "P"]
+        }
+    ]
+}

@@ -1,0 +1,139 @@
+// ============================================================
+// NATURAL VIM KEYBINDINGS FOR VS CODE (EVERYWHERE & EXPLORER)
+// ============================================================
+[
+    // --- GLOBAL WINDOW NAVIGATION (Editor, Terminal, Explorer, Panels) ---
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "ctrl+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight"
+    },
+    {
+        "key": "alt+h",
+        "command": "workbench.action.navigateLeft"
+    },
+    {
+        "key": "alt+j",
+        "command": "workbench.action.navigateDown"
+    },
+    {
+        "key": "alt+k",
+        "command": "workbench.action.navigateUp"
+    },
+    {
+        "key": "alt+l",
+        "command": "workbench.action.navigateRight"
+    },
+
+    // --- VIM NAVIGATION IN FILE EXPLORER SIDEBAR ---
+    {
+        "key": "j",
+        "command": "list.focusDown",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "k",
+        "command": "list.focusUp",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "h",
+        "command": "list.collapse",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "l",
+        "command": "list.select",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "o",
+        "command": "list.select",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "escape",
+        "command": "workbench.action.focusActiveEditorGroup",
+        "when": "filesExplorerFocus"
+    },
+
+    // --- SPLIT EDITOR SHORTCUTS (Space + | & Space + -) ---
+    {
+        "key": "space |",
+        "command": "workbench.action.splitEditor",
+        "when": "!inputFocus"
+    },
+    {
+        "key": "space -",
+        "command": "workbench.action.splitEditorDown",
+        "when": "!inputFocus"
+    },
+
+    // --- GLOBAL EXPLORER TOGGLE ---
+    {
+        "key": "space e",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "when": "!inputFocus"
+    },
+
+    // --- TAB NAVIGATION (Shift + H / Shift + L) ---
+    {
+        "key": "shift+h",
+        "command": "workbench.action.previousEditor",
+        "when": "!inputFocus"
+    },
+    {
+        "key": "shift+l",
+        "command": "workbench.action.nextEditor",
+        "when": "!inputFocus"
+    },
+
+    // --- WINDOW RESIZING (Ctrl + Arrow Keys) ---
+    {
+        "key": "ctrl+up",
+        "command": "workbench.action.increaseViewHeight"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "workbench.action.decreaseViewHeight"
+    },
+    {
+        "key": "ctrl+left",
+        "command": "workbench.action.decreaseViewWidth"
+    },
+    {
+        "key": "ctrl+right",
+        "command": "workbench.action.increaseViewWidth"
+    }
+]
