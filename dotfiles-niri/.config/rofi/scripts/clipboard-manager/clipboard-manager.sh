@@ -43,11 +43,11 @@ while true; do
   # Exit if no selection / user pressed Esc
   [ -z "$RESULT" ] && exit 0
 
-  # --- ACTION 1: CLEAR HISTORY (Preserves Pinned Items) ---
+  # --- ACTION 1: CLEAR HISTORY (Preserves Pinned Items & Auto Exits) ---
   if [[ "$RESULT" == *"CLEAR ALL HISTORY"* ]]; then
     cliphist wipe
     notify-send -h string:x-dunst-stack-tag:clipboard -u normal "Clipboard" "History cleared! 🗑️ (Pinned items preserved)"
-    continue
+    exit 0
   fi
 
   # --- ACTION 2: INTERACT WITH PINNED ITEMS ---
@@ -65,6 +65,19 @@ while true; do
       fi
     done
 
+    # Fallback search if exact string match missed
+    if [ -z "$TARGET_HASH" ]; then
+      for f in "$PIN_DIR"/*.preview; do
+        [ -e "$f" ] || continue
+        hash=$(basename "$f" .preview)
+        preview=$(cat "$f")
+        if [[ "$SELECTED_TEXT" == *"$preview"* ]] || [[ "$preview" == *"$SELECTED_TEXT"* ]]; then
+          TARGET_HASH="$hash"
+          break
+        fi
+      done
+    fi
+
     if [ -n "$TARGET_HASH" ]; then
       if [ $EXIT_CODE -eq 0 ]; then
         cat "$PIN_DIR/$TARGET_HASH.content" | wl-copy
@@ -76,23 +89,8 @@ while true; do
         notify-send -h string:x-dunst-stack-tag:clipboard -u low "Clipboard" "Item unpinned. 🗑️"
         continue
       fi
-    else
-      # Fallback match if exact string match missed
-      if [ $EXIT_CODE -eq 11 ]; then
-        for f in "$PIN_DIR"/*.preview; do
-          [ -e "$f" ] || continue
-          hash=$(basename "$f" .preview)
-          preview=$(cat "$f")
-          if [[ "$SELECTED_TEXT" == *"$preview"* ]] || [[ "$preview" == *"$SELECTED_TEXT"* ]]; then
-            rm -f "$PIN_DIR/$hash.preview" "$PIN_DIR/$hash.content"
-            notify-send -h string:x-dunst-stack-tag:clipboard -u low "Clipboard" "Item unpinned. 🗑️"
-            break
-          fi
-        done
-        continue
-      fi
     fi
-    continue
+    exit 0
   fi
 
   # --- ACTION 3: INTERACT WITH NORMAL HISTORY ITEMS ---
