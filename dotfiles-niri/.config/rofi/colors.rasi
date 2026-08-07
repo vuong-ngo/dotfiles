@@ -1,0 +1,25 @@
+/*****----- Colors - Exact Tmux Graphite Black Theme -----*****/
+* {
+    /* Exact Tmux Color Palette */
+    background:          #18181BE6; /* Deep Graphite Glass (#18181b) */
+    background-alt:      #27272AFF; /* Dark Steel Container (#27272a) */
+    background-card:     #3F3F46FF; /* Secondary Graphite Card (#3f3f46) */
+
+    foreground:          #F4F4F5FF; /* Platinum White Text (#f4f4f5) */
+    foreground-muted:    #A1A1AAFF; /* Silver Grey Muted Text (#a1a1aa) */
+
+    /* Selection & Highlight (Matches Tmux Active Window Index) */
+    selected:            #F4F4F5FF; /* Platinum White Highlight */
+    selected-text:       #18181BFF; /* Dark Text (#18181b) on selection */
+
+    /* Mode Accents (Matches Tmux Modes) */
+    accent:              #E4E4E7FF; /* Normal Mode Silver (#e4e4e7) */
+    accent-amber:        #F59E0BFF; /* Prefix Mode Amber (#f59e0b) */
+    accent-purple:       #C084FCFF; /* Visual Mode Purple (#c084fc) */
+    urgent:              #F43F5EFF; /* Warning Rose Red */
+
+    /* Borders & Dividers (Matches Tmux #52525b) */
+    border-colour:       #52525B66; /* Subtle Glass Border */
+    border-highlight:    #F4F4F566; /* Silver Highlight Border */
+    background-color:    transparent;
+}

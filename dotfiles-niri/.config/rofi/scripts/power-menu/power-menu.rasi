@@ -1,0 +1,84 @@
+/*****----- Configuration for Minimalist Icon-Only Top Power Menu -----*****/
+configuration {
+    show-icons:                 false;
+}
+
+/*****----- Global Properties -----*****/
+@import                          "~/.config/rofi/colors.rasi"
+@import                          "~/.config/rofi/keybinds.rasi"
+
+/*****----- Main Window (Compact Top Center Bar) -----*****/
+window {
+    transparency:       "real";
+    location:           north;
+    anchor:             north;
+    fullscreen:         false;
+    width:              600px;
+    x-offset:           0px;
+    y-offset:           20px;
+
+    border:             1.5px solid;
+    border-radius:      20px;
+    border-color:       @border-colour;
+    background-color:   @background;
+    padding:            14px;
+    cursor:             "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:            true;
+    spacing:            0px;
+    margin:             0px;
+    padding:            0px;
+    background-color:   transparent;
+    children:           [ "listview" ];
+}
+
+/*****----- Listview (6 Icon Options) -----*****/
+listview {
+    enabled:            true;
+    columns:            6;
+    lines:              1;
+    cycle:              true;
+    dynamic:            true;
+    scrollbar:          false;
+    layout:             vertical;
+
+    spacing:            10px;
+    background-color:   transparent;
+    text-color:         @foreground;
+    cursor:             "default";
+}
+
+/*****----- Elements (Icon Buttons) -----*****/
+element {
+    enabled:            true;
+    padding:            18px 0px;
+    border-radius:      14px;
+    border:             1px solid;
+    border-color:       rgba(255, 255, 255, 0.06);
+    background-color:   @background-alt;
+    text-color:         @foreground;
+    cursor:             pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color:   @background-alt;
+    text-color:         @foreground;
+}
+
+element selected.normal {
+    background-color:   @selected;
+    text-color:         @selected-text;
+    border-color:       @selected;
+}
+
+element-text {
+    font:               "JetBrainsMono Nerd Font Bold 22";
+    background-color:   transparent;
+    text-color:         inherit;
+    cursor:             inherit;
+    vertical-align:     0.5;
+    horizontal-align:   0.5;
+}

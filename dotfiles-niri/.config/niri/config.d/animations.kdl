@@ -1,0 +1,35 @@
+// ================================================
+// NIRI ANIMATIONS CONFIGURATION (Smooth & Elegant - Reduced Bounce)
+// ================================================
+
+animations {
+    slowdown 1.0
+
+    window-open {
+        spring damping-ratio=0.82 stiffness=420 epsilon=0.0001
+    }
+
+    window-close {
+        spring damping-ratio=0.88 stiffness=520 epsilon=0.0001
+    }
+
+    horizontal-view-movement {
+        spring damping-ratio=0.85 stiffness=320 epsilon=0.0001
+    }
+
+    window-movement {
+        spring damping-ratio=0.80 stiffness=380 epsilon=0.0001
+    }
+
+    window-resize {
+        spring damping-ratio=0.85 stiffness=600 epsilon=0.0001
+    }
+
+    workspace-switch {
+        spring damping-ratio=0.82 stiffness=350 epsilon=0.0001
+    }
+
+    overview-open-close {
+        spring damping-ratio=0.80 stiffness=400 epsilon=0.0001
+    }
+}

@@ -1,0 +1,138 @@
+/*****----- Configuration for Wallpaper Picker (Tight Gallery & Search) -----*****/
+configuration {
+    show-icons:                 true;
+}
+
+/*****----- Global Properties -----*****/
+@import                         "~/.config/rofi/colors.rasi"
+@import                         "~/.config/rofi/keybinds.rasi"
+
+/*****----- Main Window (Bottom Center Compact Gallery) -----*****/
+window {
+    transparency:                "real";
+    location:                    south;
+    anchor:                      south;
+    fullscreen:                  false;
+    width:                       1480px;
+    height:                      320px;
+    x-offset:                    0px;
+    y-offset:                    -20px;
+
+    enabled:                     true;
+    border:                      1.5px solid;
+    border-radius:               22px;
+    border-color:                @border-colour;
+    background-color:            @background;
+    padding:                     16px;
+    cursor:                      "default";
+}
+
+/*****----- Main Box (Zero Gap Between Thumbnails & Search) -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     8px;
+    margin:                      0px;
+    padding:                     0px;
+    background-color:            transparent;
+    children:                    [ "listview", "inputbar" ];
+}
+
+/*****----- Listview (Horizontal Gallery Row) -----*****/
+listview {
+    enabled:                     true;
+    expand:                      false;
+    columns:                     6;
+    lines:                       1;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+
+    spacing:                     12px;
+    margin:                      0px;
+    padding:                     0px;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      "default";
+}
+
+/*****----- Elements (Large Wallpaper Cards) -----*****/
+element {
+    enabled:                     true;
+    orientation:                 vertical;
+    spacing:                     4px;
+    margin:                      0px;
+    padding:                     6px;
+    border-radius:               14px;
+    border:                      1px solid;
+    border-color:                rgba(82, 82, 91, 0.3);
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    cursor:                      pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+
+element selected.normal {
+    background-color:            @selected;
+    text-color:                  @selected-text;
+    border-color:                @selected;
+}
+
+element-icon {
+    background-color:            transparent;
+    size:                        180px;
+    cursor:                      inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+    border-radius:               10px;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    font:                        "JetBrainsMono Nerd Font Bold 10.5";
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
+}
+
+/*****----- Inputbar (Tight Below Gallery) -----*****/
+inputbar {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     8px 14px;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+    border:                      1px solid;
+    border-color:                rgba(82, 82, 91, 0.3);
+    border-radius:               14px;
+    spacing:                     8px;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    str:                         " ";
+    font:                        "JetBrainsMono Nerd Font Bold 12";
+    background-color:            transparent;
+    text-color:                  @accent;
+    vertical-align:              0.5;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder:                 "Search wallpaper vibe...";
+    placeholder-color:           @foreground-muted;
+    vertical-align:              0.5;
+    font:                        "JetBrainsMono Nerd Font 10.5";
+}

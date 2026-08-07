@@ -1,0 +1,3 @@
+/*****----- Shared Color & Keybind Compatibility -----*****/
+@import "~/.config/rofi/colors.rasi"
+@import "~/.config/rofi/keybinds.rasi"
