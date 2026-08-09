@@ -6,9 +6,13 @@ autoload -Uz compinit
 compinit
 eval "$(starship init zsh)"
 
-# === KEYBIND ===
-# Custom keybind like vim
+# === KEYBIND (VIM MODE & JK TO ESCAPE) ===
 bindkey -v
+export KEYTIMEOUT=15
+
+# Map 'jk' and 'kj' in insert mode to switch to vicmd (Vim Normal Mode)
+bindkey -M viins 'jk' vi-cmd-mode
+bindkey -M viins 'kj' vi-cmd-mode
 
 bindkey '^?' backward-delete-char
 bindkey '^H' backward-delete-char
@@ -43,5 +47,5 @@ export PATH="/home/ngoducvuong/.local/bin:$PATH"
 # Java (manage java version)
 
 # === ALIAS ===
-alias zshconfig="mate ~/.zshrc"
+alias zshconfig="nvim ~/.zshrc"
 source ~/.config/niri/scripts/aliases.sh
