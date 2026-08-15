@@ -106,6 +106,22 @@ window-rule {
 }
 
 window-rule {
+    match app-id="code"
+    match app-id="Nautilus"
+    match app-id="foot"
+    match app-id="kitty"
+
+}
+
+// Make rofi FLOAT and animate cleanly.
+window-rule {
+    match app-id="rofi"
+    match app-id="Rofi"
+
+    open-floating true
+}
+
+window-rule {
     match app-id="pop-id"
     match app-id="bubble"
     match app-id="task_dialog"
@@ -149,7 +165,6 @@ window-rule {
     match app-id="blueman-manager"
     match app-id="wdisplays"
     match app-id="nwg-look"
-    match app-id=r#".*DAMX$"#
     match app-id=r#"org\.gtk\.FileChooserDialog"#
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
 
@@ -212,13 +227,6 @@ layer-rule {
     shadow { off; }
     match at-startup=true
     place-within-backdrop true
-}
-
-// Make rofi FLOAT and animate cleanly.
-window-rule {
-    match app-id="rofi"
-    match app-id="Rofi"
-    open-floating true
 }
 
 layer-rule {
