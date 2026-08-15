@@ -13,6 +13,7 @@ alias script-powersave="bash ~/.config/niri/scripts/power_saved.sh"
 alias script-nvidia="bash ~/.config/niri/scripts/rofi_nvidia.sh"
 alias script-keybinds="bash ~/.config/niri/scripts/toggle_keybinds.sh"
 alias script-volume="bash ~/.config/niri/scripts/volume.sh"
+alias script-pin="bash ~/.config/niri/scripts/show_pin.sh"
 
 # Rofi UI Scripts Shortcuts
 alias script-wall="bash ~/.config/rofi/scripts/wallpaper-picker/wallpaper-picker.sh"
