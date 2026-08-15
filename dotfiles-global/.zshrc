@@ -42,7 +42,6 @@ source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # === ENVIRONMENT ===
 # Added by Antigravity CLI installer
-export PATH="/home/ngoducvuong/.local/bin:$PATH"
 # Pyenv (manage python version)
 # Java (manage java version)
 
