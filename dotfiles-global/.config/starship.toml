@@ -1,12 +1,15 @@
 # ============================================================
-# Masterpiece Starship Prompt Configuration (Ultra-Clean & Crisp)
-# Platform: Arch Linux x Wayland (Niri)
-# Theme: Catppuccin Mocha & Graphite Cyan Aesthetics
+# ⚡ CYBERPUNK NEON GLOW - ULTIMATE STARSHIP MASTERPIECE ⚡
+# Aesthetic: Tokyo Night x Cyberpunk Neon Energy
+# Platform: Arch Linux (Niri) x Zsh
 # ============================================================
 
 add_newline = true
 
-# Two-line format: Top line holds directory & rich modules, bottom line has clean character prompt
+# Two-line clean minimalist layout:
+# Line 1 (Left): 󰉋 Path (max 3 dirs) + Enclosed Badges (Git, Runtimes, Duration)
+# Line 1 (Right): Clock Time aligned to the right edge
+# Line 2: ✦❯ Sparkling aesthetic green prompt arrow
 format = """
 $username\
 $hostname\
@@ -27,9 +30,10 @@ $java\
 $cmd_duration\
 $jobs\
 $battery\
-$status\
-$time
+$status
 $character"""
+
+right_format = """$time"""
 
 # ------------------------------------------------------------
 # 1. USER & HOSTNAME (SSH / Root Only)
@@ -46,46 +50,45 @@ format = "[$hostname]($style) "
 style = "bold #22d3ee"
 
 # ------------------------------------------------------------
-# 2. DIRECTORY (Always Displays Full Active Folder Name - Never Truncated to …/)
+# 2. DIRECTORY (Clean Folder Icon, Electric Cyan, Max 3 Dirs, Never Hidden)
 # ------------------------------------------------------------
 [directory]
-format = "[󰉋 $path]($style)[$read_only]($read_only_style) "
-repo_root_format = "[󰊢 $before_root_path$root_path]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
-style = "bold #38bdf8"
-repo_root_style = "bold #c084fc"
+format = "[󰉋  $path]($style)[$read_only]($read_only_style) "
+style = "bold #00f0ff"
 truncation_length = 3
-truncation_symbol = ""
+truncation_symbol = "…/"
 truncate_to_repo = false
-home_symbol = "󰋜 ~"
+fish_style_pwd_dir_length = 0
+home_symbol = "~"
 read_only = " 󰌾"
 read_only_style = "bold #f43f5e"
 
 # ------------------------------------------------------------
-# 3. GIT INTEGRATION (Vibrant Color Accents)
+# 3. GIT INTEGRATION (Neon Lavender & Sunset Orange Badges)
 # ------------------------------------------------------------
 [git_branch]
-format = "[$symbol$branch]($style) "
-symbol = "󰘬 "
+format = "[( $branch)]($style) "
+symbol = ""
 style = "bold #c084fc"
 
 [git_commit]
 commit_hash_length = 7
-format = "([$hash]($style) )"
-style = "bold #a1a1aa"
+format = "([($hash)]($style) )"
+style = "bold #94a3b8"
 
 [git_state]
-format = "([$state( $progress_current/$progress_total)]($style) )"
-style = "bold #f59e0b"
+format = "([($state $progress_current/$progress_total)]($style) )"
+style = "bold #facc15"
 
 [git_status]
-format = "([$all_status$ahead_behind]($style) )"
+format = "([($all_status$ahead_behind)]($style) )"
 style = "bold #fb923c"
-conflicted = "="
+conflicted = "✖"
 ahead = "⇡${count}"
 behind = "⇣${count}"
 diverged = "⇡${ahead_count}⇣${behind_count}"
 untracked = "?${count}"
-modified = "~${count}"
+modified = "!${count}"
 staged = "+${count}"
 renamed = "»${count}"
 deleted = "✘${count}"
@@ -94,64 +97,64 @@ deleted = "✘${count}"
 # 4. CLOUD & DEPLOYMENT TOOLKITS
 # ------------------------------------------------------------
 [docker_context]
-format = "[󰡨 $context]($style) "
-style = "bold #38bdf8"
+format = "[(󰡨 $context)]($style) "
+style = "bold #06b6d4"
 only_with_files = true
 
 [kubernetes]
-format = "[󱏓 $context(-$namespace)]($style) "
-style = "bold #60a5fa"
+format = "[(󱏓 $context(-$namespace))]($style) "
+style = "bold #818cf8"
 disabled = false
 
 [terraform]
-format = "[󱁢 $workspace]($style) "
-style = "bold #818cf8"
+format = "[(󱁢 $workspace)]($style) "
+style = "bold #a78bfa"
 
 # ------------------------------------------------------------
-# 5. ESSENTIAL RUNTIMES (Colorful Icons)
+# 5. DEV RUNTIMES & LANGUAGES (Hyper-Vibrant Neon Badges)
 # ------------------------------------------------------------
 [c]
-format = "[ $version]($style) "
+format = "[( $version)]($style) "
 style = "bold #60a5fa"
 
 [rust]
-format = "[ $version]($style) "
+format = "[( $version)]($style) "
 style = "bold #f97316"
 
 [golang]
-format = "[ $version]($style) "
+format = "[( $version)]($style) "
 style = "bold #22d3ee"
 
 [nodejs]
-format = "[ $version]($style) "
+format = "[(󰌞 $version)]($style) "
 style = "bold #4ade80"
 
 [python]
-format = "[ $version]($style) "
+format = "[( $version)]($style) "
 style = "bold #facc15"
 
 [java]
-format = "[ $version]($style) "
+format = "[( $version)]($style) "
 style = "bold #f87171"
 
 # ------------------------------------------------------------
-# 6. SYSTEM PERFORMANCE & STATUS
+# 6. SYSTEM STATUS & DURATION
 # ------------------------------------------------------------
 [cmd_duration]
 min_time = 2_000
-format = "[󱎫 $duration]($style) "
+format = "[(󱎫 $duration)]($style) "
 style = "bold #fbbf24"
 
 [jobs]
-symbol = "✦ "
-format = "[$symbol$number]($style) "
+symbol = "✦"
+format = "[(✦ $number)]($style) "
 style = "bold #c084fc"
 
 [battery]
 full_symbol = "󰁹 "
 charging_symbol = "󰂄 "
 discharging_symbol = "󰂃 "
-format = "[$symbol$percentage]($style) "
+format = "[($symbol$percentage)]($style) "
 disabled = false
 
 [[battery.display]]
@@ -159,24 +162,27 @@ threshold = 20
 style = "bold #f43f5e"
 
 [status]
-format = "[$symbol$status]($style) "
+format = "([($symbol$status)]($style) )"
 symbol = "✘ "
 style = "bold #f43f5e"
 disabled = false
 
+# ------------------------------------------------------------
+# 7. RIGHT PROMPT (Time)
+# ------------------------------------------------------------
 [time]
 disabled = false
 time_format = "%H:%M"
-format = "[󰥔 $time]($style) "
-style = "bold #71717a"
+format = "[( $time)]($style)"
+style = "bold #94a3b8"
 
 # ------------------------------------------------------------
-# 7. PROMPT CHARACTER (Color-Coded Mode Indicators)
+# 8. PROMPT CHARACTER (Clean Minimal Green Chevron & Responsive Vi Mode)
 # ------------------------------------------------------------
 [character]
-success_symbol = "[✦❯](bold #34d399) "
-error_symbol = "[✦❯](bold #f43f5e) "
-vimcmd_symbol = "[✦❮](bold #c084fc) "
-vimcmd_visual_symbol = "[✦❮](bold #facc15) "
-vimcmd_replace_symbol = "[✦❮](bold #f97316) "
-vimcmd_replace_one_symbol = "[✦❮](bold #38bdf8) "
+success_symbol = "[❯](bold #4ade80) "
+error_symbol = "[❯](bold #f43f5e) "
+vimcmd_symbol = "[❮](bold #c084fc) "
+vimcmd_visual_symbol = "[❮](bold #facc15) "
+vimcmd_replace_symbol = "[❮](bold #fb923c) "
+vimcmd_replace_one_symbol = "[❮](bold #22d3ee) "
