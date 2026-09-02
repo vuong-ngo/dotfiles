@@ -26,6 +26,7 @@ $rust\
 $golang\
 $nodejs\
 $python\
+$conda\
 $java\
 $cmd_duration\
 $jobs\
@@ -130,8 +131,13 @@ format = "[(󰌞 $version)]($style) "
 style = "bold #4ade80"
 
 [python]
-format = "[( $version)]($style) "
+format = "[( $version( ($virtualenv)))]($style) "
 style = "bold #facc15"
+
+[conda]
+format = "[(󱔎 $environment)]($style) "
+style = "bold #4ade80"
+ignore_base = false
 
 [java]
 format = "[( $version)]($style) "
