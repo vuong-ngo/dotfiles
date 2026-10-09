@@ -1,4 +1,4 @@
-# 🗺️ Tmux Configuration (Vim-Mode & Tokyo Night Style)
+# 🗺️ Tmux Configuration (Vim-Mode & Pure Graphite Style)
 
 A high-performance, minimalist Tmux configuration heavily optimized for **Neovim** integration and keyboard-driven workflows. It features a responsive dynamic status bar, seamless Vim navigation, and immediate keystroke execution.
 
@@ -6,7 +6,7 @@ A high-performance, minimalist Tmux configuration heavily optimized for **Neovim
 
 ## 🚀 Core Concept
 
-To optimize ergonomics and ergonomics during long coding sessions, the default activation key (**Prefix**) has been remapped:
+To optimize ergonomics during long coding sessions, the default activation key (**Prefix**) has been remapped:
 * **Default Prefix:** `Ctrl + b` ❌ (Disabled)
 * **New Prefix:** `Ctrl + a`  (Much easier to reach, matches standard terminal layouts)
 
@@ -62,7 +62,7 @@ Full integration with system clipboards utilizing standard Vim navigation contro
 
 * **Enter Copy Mode:** Press `Prefix, v` (or the default `Prefix, [`).
 
-Once the status bar at the top changes to the Purple ** VISUAL** banner, use the following keys to browse buffer history and copy data:
+Once the status bar at the top changes to the Purple **VISUAL** banner, use the following keys to browse buffer history and copy data:
 
 | Keybinding | Action |
 | :--- | :--- |
@@ -84,10 +84,17 @@ Once the status bar at the top changes to the Purple ** VISUAL** banner, use 
 
 ---
 
-## 🎨 Dynamic Top Status Bar UI
+## 🎨 Dynamic Top Status Bar UI (Synchronized with Neovim Bufferline & Lualine)
 
-The status bar is locked to the **Top** edge to avoid visual collision with Neovim’s bottom statuslines. It actively switches colors based on your current input environment:
+The status bar is locked to the **Top** edge to avoid visual collision with Neovim’s bottom statuslines, styled 1-to-1 with Neovim’s **Bufferline (VS Code Flat Square Tabs)** and **Lualine Graphite Theme**:
 
-* 🟦 **Blue (NORMAL):** Standard idle/operational mode.
-* 🟨 **Yellow (PREFIX):** Triggered when `Ctrl + a` is pressed; indicating Tmux is awaiting a command.
-* 🟪 **Purple (VISUAL):** Active when browsing terminal buffers or working inside Copy Mode.
+* ⬜ **NORMAL:** Pure graphite white island (`NORMAL`, matching Neovim `normal.a` `#e4e4e7`).
+* 🟨 **PREFIX:** Amber yellow alert island (`PREFIX`, matching Neovim `insert.a` `#f59e0b`).
+* 🟪 **VISUAL:** Purple copy/visual mode island (`VISUAL`, matching Neovim `visual.a` `#c084fc`).
+* 🖥️ **Session Badge:** Charcoal zinc island (`#S`, matching Neovim `section b` `#27272a`).
+* 🗂️ **Bufferline-Synced Window Tabs:**
+  * **Active:** Charcoal zinc surface (`#27272a`) with a Graphite White left accent indicator (`▎` `#e4e4e7`), bold stark white title (`#f4f4f5`), and a status dot (`●`) when the pane is zoomed.
+  * **Inactive:** Pure terminal transparency (`bg=default`), subtle ash gray index (`#71717a`), and muted silver title (`#a1a1aa`).
+* 🕒 **High-Contrast Connected Date & Time:** Seamless dual-tone monochrome block anchored at the top-right corner:
+  * **Date:** Charcoal zinc block (`#27272a`) with bold white text (`%d/%m/%Y`).
+  * **Clock:** Stark Graphite White block (`#e4e4e7`) with bold dark charcoal digits (`%H:%M`), creating a clean mirrored balance with the left-hand NORMAL badge.
